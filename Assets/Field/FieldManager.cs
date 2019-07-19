@@ -16,6 +16,8 @@ public class FieldManager : MonoBehaviour
     public GameObject[] outerWallTiles;                             //외벽
     public GameObject[] Unit;							        	//Unit
 
+    
+
 
     // Start is called before the first frame update
     void Start()
@@ -28,4 +30,15 @@ public class FieldManager : MonoBehaviour
     {
         
     }
+
+    void FloorCreat(int colums, int rows)
+    {
+       
+
+
+    }
+    
+
+
+    
 }
