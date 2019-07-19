@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Wall : MonoBehaviour
+public class Basic_Wall : MonoBehaviour
 {
     // Start is called before the first frame update
     void Start()
