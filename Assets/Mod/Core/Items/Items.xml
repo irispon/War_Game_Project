@@ -1,0 +1,25 @@
+  <items ModName ="Core" >
+
+		<ThingDef ParentName="BShirt">
+            <defName>기본 셔츠</defName>
+            <label>unfinished play</label>
+            <description>기본 옷입니다.</description>
+            <graphicData>
+              <texPath>Texture/Shirts/Shirts.b.png</texPath>
+              <graphicClass>Graphic_Double</graphicClass>
+            </graphicData>
+            <stuffCategories Inherit="false" />
+          </ThingDef>
+		  
+		  <ThingDef ParentName="AShirt">
+            <defName>양본 셔츠</defName>
+            <label>unfinished play</label>
+            <description>양본 옷입니다.</description>
+            <graphicData>
+              <texPath>Texture/Shirts/Shirts.b.png</texPath>
+              <graphicClass>Graphic_Double</graphicClass>
+            </graphicData>
+            <stuffCategories Inherit="false" />
+          </ThingDef>
+		  
+    </items>

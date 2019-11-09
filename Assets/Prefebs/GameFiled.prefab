@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4266890554225226830}
   - component: {fileID: 4266890554225226829}
-  - component: {fileID: 4266890554225226831}
   m_Layer: 0
   m_Name: GameFiled
   m_TagString: Untagged
@@ -26,7 +25,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4266890554225226828}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.022821836, y: 0.113505535, z: -0.19252692}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -46,28 +45,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   columns: 8
   rows: 8
-  floorTiles: []
-  wallTiles: []
-  outerWallTiles: []
-  Unit: []
---- !u!114 &4266890554225226831
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4266890554225226828}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: de9bf0aa55dbec148a74f975343a2205, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  columns: 8
-  rows: 8
   floorTiles:
   - {fileID: 4804647186497118842, guid: 7605bb236fe234440999d69f6130d6df, type: 3}
-  wallTiles:
+  wallTiles: []
+  outerWallTiles:
   - {fileID: 4804647186497118842, guid: 26645174b7bb35841b02c674ddf0e06e, type: 3}
-  outerWallTiles: []
-  Unit:
-  - {fileID: 4804647186497118842, guid: 7e7115d16cd498d4babaefca2d3d62f8, type: 3}
+  Unit: []
+  boardHolder: {fileID: 0}

@@ -1,0 +1,8 @@
+  <ModInfomation>
+		<ModInfo>
+            <Items>/Items/Items.xml</Items>
+			<Items>/Items/Weapon/Weapons.xml</Items>
+            <Scripts>True</Scripts>
+            <OtherThing>False</OtherThing>
+        </ModInfo>
+   </ModInfomation>
