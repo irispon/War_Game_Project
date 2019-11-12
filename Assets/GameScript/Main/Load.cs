@@ -198,7 +198,7 @@ public class Load : MonoBehaviour
                 ItemInfo item = new ItemInfo();
                 item.setDecription(decripton).setDefName(itemDefName).setUqName(itemThingDefName).setLabel(label).setGrapic(graphicDir, graphicType);
 
-                ItemManager.GetInstatnce().Add(item);
+                ItemManager.GetInstatnce().Make(item);
 
 
             }

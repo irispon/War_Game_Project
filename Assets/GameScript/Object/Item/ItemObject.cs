@@ -3,13 +3,12 @@ using UnityEngine;
 
 public class ItemObject: MonoBehaviour
 {
-    private ItemInfo itemInfo;
+    public ItemInfo itemInfo;
     private SpriteRenderer graphic;
-
 
     public void Make(ItemInfo itemInfo)
     {
-        graphic = GetComponent<SpriteRenderer>();
+        
         Set(itemInfo);
         this.Join();
 
@@ -17,19 +16,28 @@ public class ItemObject: MonoBehaviour
 
     private void Awake()
     {
+        graphic = GetComponent<SpriteRenderer>();
 
+    }
 
+    public ItemObject Copy(ItemObject itemObject)
+    {
+
+        Set(itemObject.itemInfo);
+
+        return this;
     }
 
     public void Set(ItemInfo itemInfo)
     {
 
         this.itemInfo = itemInfo.Copy();
-        graphic.sprite= SpriteLoader.LoadNewSprite(itemInfo.getGrapicPath());
-      
+        graphic.sprite = itemInfo.getSprite();
+        
  
 
     }
+
 
     public ItemObject Clon()
     {

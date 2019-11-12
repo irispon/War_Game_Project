@@ -39,13 +39,6 @@ public class ItemManager : MonoBehaviour /*베이스 아이템 오브젝트. 기
     }
 
 
-    public void Make()
-    {
-
-        /*게임 오브젝트 component 추가 기본 deafault 설정 필요할 듯.  */
-        
-    }
-
     public void Join(string def,ItemObject item)
     {
 
@@ -53,13 +46,26 @@ public class ItemManager : MonoBehaviour /*베이스 아이템 오브젝트. 기
 
     }
 
-    public ItemObject get(string def)
+    public void Get(string def)
     {
 
-        return items[def].Clon();
+       
+        GameObject item = Instantiate(this.item);
+        try
+        {
+            Debug.Log("확인"+ items[def].itemInfo.getDecription() + def);
+            item.GetComponent<ItemObject>().Copy(items[def].Clon());
+            item.name = "copy"+ items[def].itemInfo.getDefName();
+        }
+        catch (Exception e)
+        {
+
+            Debug.Log("아이템 불러오기 실패!!"+e);
+        }
+
     }
  
-    public void delete(string def)
+    public void Delete(string def)
     {
         items.Remove(def);
 
@@ -83,10 +89,16 @@ public class ItemManager : MonoBehaviour /*베이스 아이템 오브젝트. 기
         return this;
     }
 
-    public void Add(ItemInfo iteminfo)
+    public void Make(ItemInfo iteminfo)
     {
         GameObject item = Instantiate(this.item);
+        System.Random random = new System.Random();
+        Vector3 vec = new Vector3(random.Next(0, 10),  random.Next(0, 10), 0);
+        item.GetComponent<Transform>().position = vec;
         item.GetComponent<ItemObject>().Make(iteminfo);
-        
+        item.name = iteminfo.getUqName();
+        Get(iteminfo.getUqName());
+
+
     }
 }

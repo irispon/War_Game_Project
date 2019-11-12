@@ -11,6 +11,7 @@ public class ItemInfo
     /*그래픽; 관련. 추후 타입을 스프라이트로 변경. 그래픽 타입은 enum으로 만들어서 single double 등등 으로 변경 예정*/
     private string grapicPath="";
     private string grapicType="";
+    private Sprite sprite;
 
     public ItemInfo setUqName(string name)
     {
@@ -43,6 +44,7 @@ public class ItemInfo
     public ItemInfo setGrapic(string path, string type)
     {
         grapicPath = path;
+        sprite = SpriteLoader.LoadNewSprite(grapicPath);
         grapicType = type;
 
         return this;
@@ -72,6 +74,12 @@ public class ItemInfo
     {
 
         return description;
+    }
+
+    public Sprite getSprite()
+    {
+
+        return sprite;
     }
 
     public string getGrapicPath()
