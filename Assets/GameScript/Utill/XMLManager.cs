@@ -85,6 +85,7 @@ public class XMLManager
         /*모드 정보 관련 상수 */
         public static readonly string MODINFOPATH = "/ModInfo/ModInfo.xml"; /*xml tag*/
         public static readonly string ITEMS = "Items";// /*xml tag*/
+        public static readonly string FIELDS = "Fields"; /*xml tag*/
         public static readonly string SCRIPTS = "Scripts"; /*xml tag*/ //true or false 
         public static readonly string OTHERTING = "OtherThing"; /*xml tag*/ //true or false 
 
@@ -127,7 +128,19 @@ public class XMLManager
 
     }
 
+    public struct Field
+    {
+        /*아이템 관련 상수*/
+        public static readonly string MODNAME = "ModName";
+        public static readonly string PARENTNAME = "ParentName";
+        public static readonly string DEFNAME = "name";
+        public static readonly string DISTURBANCEDEGREE = "disturbanceDegree";
+        public static readonly string TEXPATH = "texPath";
+        public static readonly string RARE = "rare";
+        public static readonly string TYPE = "type";
 
+
+    }
 
 
 

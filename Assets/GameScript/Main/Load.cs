@@ -81,6 +81,7 @@ public class Load : MonoBehaviour
     private void LoadModInfo(String path,XmlNodeList nodeList)
     {
         List<String> Items = new List<string>();
+        List<String> fields = new List<string>();
 
         try
         {
@@ -93,8 +94,20 @@ public class Load : MonoBehaviour
                     XmlNodeList itemDir = node.SelectNodes(XMLManager.ModInfo.ITEMS);
                     foreach (XmlNode itemNode in itemDir)
                     {
-                        print("아이템 주소" + itemNode.InnerText);
+                        print("주소" + itemNode.InnerText);
                         Items.Add(itemNode.InnerText);
+
+                    }
+
+                }
+
+                if (!node.SelectSingleNode(XMLManager.ModInfo.FIELDS).InnerText.Equals("False"))
+                {
+                    XmlNodeList fieldDir = node.SelectNodes(XMLManager.ModInfo.FIELDS);
+                    foreach (XmlNode fieldNode in fieldDir)
+                    {
+                        print("타일 주소" + fieldNode.InnerText);
+                        fields.Add(fieldNode.InnerText);
 
                     }
 
@@ -135,6 +148,18 @@ public class Load : MonoBehaviour
 
                    print(path.Replace(XMLManager.ModInfo.MODINFOPATH,itemDir));
                    xMLManager.Load(path.Replace(XMLManager.ModInfo.MODINFOPATH, itemDir),new XMLManager.XmlLoad(LoadItem));
+                }
+
+            }
+
+
+            if (fields.Count >= 1)
+            {
+                foreach (string fieldDir in fields)
+                {
+
+                    print(path.Replace(XMLManager.ModInfo.MODINFOPATH, fieldDir));
+                    xMLManager.Load(path.Replace(XMLManager.ModInfo.MODINFOPATH, fieldDir), new XMLManager.XmlLoad(LoadField));
                 }
 
             }
@@ -211,6 +236,59 @@ public class Load : MonoBehaviour
         }
 
 
+
+    }
+
+
+    private void LoadField(String path, XmlNodeList nodeList)
+    {
+        String modName = nodeList.Item(0).ParentNode.Attributes[XMLManager.ItemInfo.MODNAME].Value;
+        int index = path.IndexOf(modName) + modName.Length + 1;
+        String modPath = path.Substring(0, index);
+
+
+
+        try
+        {
+            foreach (XmlNode node in nodeList)
+            {
+                FieldProperty fieldProperty = new FieldProperty();
+                try
+                {
+               
+                     fieldProperty.uqName = node.Attributes[XMLManager.Field.PARENTNAME].Value;
+                     fieldProperty.name =  node.SelectSingleNode(XMLManager.Field.DEFNAME).InnerText;
+
+                    fieldProperty.rare = double.Parse(node.SelectSingleNode(XMLManager.Field.RARE).InnerText);
+                    fieldProperty.disturbanceDegree = double.Parse(node.SelectSingleNode(XMLManager.Field.DISTURBANCEDEGREE).InnerText);
+                    fieldProperty.sprite = SpriteLoader.LoadNewSprite(node.SelectSingleNode(XMLManager.Field.TEXPATH).InnerText);
+                    fieldProperty.type = FieldProperty.Parse(node.SelectSingleNode(XMLManager.Field.TYPE).InnerText);
+
+
+                }
+                catch(Exception e)
+                {
+                    Debug.Log("타입 변경 실패"+e);
+
+                }
+      
+                Debug.Log("고유 이름 " + fieldProperty.uqName);
+                Debug.Log("타일 이름 " + fieldProperty.name);
+                Debug.Log("타일 희귀도 " + fieldProperty.rare);
+                Debug.Log("타일 레이어 " + fieldProperty.type);
+                Debug.Log("타일 방해도 " + fieldProperty.disturbanceDegree);
+
+
+
+
+            }
+
+        }
+        catch (Exception e)
+        {
+            Debug.Log("field Loading 오류문제: " + e);
+
+        }
 
     }
 
