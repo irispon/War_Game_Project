@@ -5,7 +5,7 @@ using System.IO;
 public class FileManager 
 {
 
-    static void CreatFolder(string path)
+    public static void CreatFolder(string path)
     {
 
         string folderPath = "./"+path;

@@ -20,7 +20,7 @@ public class SpriteLoader
         }
         catch (Exception e)
         {
-            Debug.Log("텍스쳐 로딩 오류"+e);
+            Debug.Log("텍스쳐 로딩 오류"+ FilePath +e);
             return null;
         }
       

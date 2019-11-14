@@ -5,7 +5,7 @@
             <disturbanceDegree>0.2</disturbanceDegree>
             <type>Floor</type>
             <rare>0.2</rare>
-            <texPath>Texture/Shirts/Shirts.b.png</texPath>
+            <texPath>Texture/Shirts/Shirts.b.png,Texture/Shirts/Shirts.b.png </texPath>
           </ThingDef>
 		    
     </fields>

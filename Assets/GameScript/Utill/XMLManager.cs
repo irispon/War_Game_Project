@@ -67,6 +67,27 @@ using UnityEngine;
  */
 
 
+/*
+ * 필드 xml 양식
+
+   <fields ModName ="Core" >
+
+    <ThingDef ParentName="Core_Dirt">
+        <name>진흙</name>
+        <disturbanceDegree>0.2</disturbanceDegree>
+        <type>Floor</type>
+        <rare>0.2</rare>
+        <texPath>Texture/Shirts/Shirts.b.png, Texture/Shirts/Shirts.b.png </texPath>
+      </ThingDef>
+
+</fields>
+
+
+
+
+
+ */
+
 
 
 public class XMLManager

@@ -256,12 +256,30 @@ public class Load : MonoBehaviour
                 try
                 {
                
-                     fieldProperty.uqName = node.Attributes[XMLManager.Field.PARENTNAME].Value;
-                     fieldProperty.name =  node.SelectSingleNode(XMLManager.Field.DEFNAME).InnerText;
+                    fieldProperty.uqName = node.Attributes[XMLManager.Field.PARENTNAME].Value;
+                    fieldProperty.name =  node.SelectSingleNode(XMLManager.Field.DEFNAME).InnerText;
 
                     fieldProperty.rare = double.Parse(node.SelectSingleNode(XMLManager.Field.RARE).InnerText);
                     fieldProperty.disturbanceDegree = double.Parse(node.SelectSingleNode(XMLManager.Field.DISTURBANCEDEGREE).InnerText);
-                    fieldProperty.sprite = SpriteLoader.LoadNewSprite(node.SelectSingleNode(XMLManager.Field.TEXPATH).InnerText);
+
+                    try
+                    {
+                        String[] sprites = node.SelectSingleNode(XMLManager.Field.TEXPATH).InnerText.Split(',');
+
+                        foreach(String sprite in sprites)
+                        {   
+
+                            fieldProperty.addSprite(modPath+sprite);
+                        }
+                    }
+                    catch(Exception e)
+                    {
+                        Debug.Log("텍스쳐 로딩 실패" +e);
+
+                    }
+
+                   
+            
                     fieldProperty.type = FieldProperty.Parse(node.SelectSingleNode(XMLManager.Field.TYPE).InnerText);
 
 
