@@ -5,7 +5,8 @@
             <disturbanceDegree>0.2</disturbanceDegree>
             <type>Floor</type>
             <rare>0.2</rare>
-            <texPath>Texture/Shirts/Shirts.b.png,Texture/Shirts/Shirts.b.png </texPath>
+            <!----> Group 추가 고민중
+            <texPath>Texture/Tile/sprite0.png,Texture/Tile/sprite1.png,Texture/Tile/sprite2.png </texPath>
           </ThingDef>
 		    
     </fields>

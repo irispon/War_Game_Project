@@ -8,6 +8,8 @@ public class FieldProperty
     public int type { get; set; } = 1;
     public double rare { get; set; } = 0.1;
     public Sprite sprite { get; set; } = null;
+
+
     public List<Sprite> sprites;
     public string name { get; set; } = "blank";
     public string uqName { get; set; } = "";
@@ -23,6 +25,8 @@ public class FieldProperty
         sprites.Add(SpriteLoader.LoadNewSprite(path));
 
     }
+
+
     public static int Parse(string type)
     {
         Layer layer = (Layer)Enum.Parse(typeof(Layer), type);
@@ -45,6 +49,8 @@ public class FieldProperty
 
  
     }
+
+
 
     
 

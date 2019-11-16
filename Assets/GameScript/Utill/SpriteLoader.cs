@@ -6,16 +6,20 @@ using System;
 public class SpriteLoader
 {
 
-    public static Sprite LoadNewSprite(string FilePath, float PixelsPerUnit = 100.0f)
+    public const float defalutPixels = 32.0f;
+    public static Sprite LoadNewSprite(string FilePath, float PixelsPerUnit = defalutPixels)
     {
 
         // Load a PNG or JPG image from disk to a Texture2D, assign this texture to a new sprite and return its reference
         Sprite NewSprite;
         Texture2D SpriteTexture = LoadTexture(FilePath);
+
       
         try
         {
+ 
             NewSprite = Sprite.Create(SpriteTexture, new Rect(0, 0, SpriteTexture.width, SpriteTexture.height), new Vector2(0, 0), PixelsPerUnit);
+           
             
         }
         catch (Exception e)

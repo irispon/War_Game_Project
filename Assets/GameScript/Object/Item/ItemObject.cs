@@ -32,6 +32,7 @@ public class ItemObject: MonoBehaviour
     {
 
         this.itemInfo = itemInfo.Copy();
+
         graphic.sprite = itemInfo.getSprite();
         
  

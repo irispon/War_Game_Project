@@ -14,15 +14,19 @@ public class Load : MonoBehaviour
 
     // Start is called before the first frame update
     private XMLManager xMLManager = new XMLManager();
-    public GameObject itemManager;
-
+    public GameObject[] Managers;
+    public GameObject fieldManager;
 
     void Awake()
     {
-        if (ItemManager.GetInstatnce() == null)
+
+        foreach (GameObject manager in Managers)
         {
-            Instantiate(itemManager);
+            Instantiate(manager);
+
         }
+
+
 
         xMLManager.Load(XMLManager.ModList.MODLISTDIR, new XMLManager.XmlLoad(LoadModList) );
 
@@ -296,7 +300,7 @@ public class Load : MonoBehaviour
                 Debug.Log("타일 레이어 " + fieldProperty.type);
                 Debug.Log("타일 방해도 " + fieldProperty.disturbanceDegree);
 
-
+                FloorManager.getInstance().addProperty(fieldProperty);
 
 
             }
@@ -307,6 +311,11 @@ public class Load : MonoBehaviour
             Debug.Log("field Loading 오류문제: " + e);
 
         }
+
+
+
+        Instantiate(fieldManager);
+
 
     }
 

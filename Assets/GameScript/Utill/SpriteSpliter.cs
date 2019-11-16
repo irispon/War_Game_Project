@@ -18,7 +18,7 @@ public class SpriteSpliter : MonoBehaviour
     void Start()
     {
         Sprite2TextureFile(sprites);
-
+      
     }
 
     // Update is called once per frame
@@ -28,10 +28,9 @@ public class SpriteSpliter : MonoBehaviour
     }
 
     /// <summary>
-
-    ///  스프라이트를 텍스쳐들로 분리해주는 함수. sprite unpacking용
-
+    ///  스프라이트를 텍스쳐들로 분리해주는 함수. sprite 언팩킹 용도입니다.
     /// </summary>
+    /// <param name="lbl"></param>
 
     public static void Sprite2TextureFile(Sprite[] sprites)
     {

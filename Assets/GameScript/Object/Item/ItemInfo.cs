@@ -45,6 +45,7 @@ public class ItemInfo
     {
         grapicPath = path;
         sprite = SpriteLoader.LoadNewSprite(grapicPath);
+        
         grapicType = type;
 
         return this;
