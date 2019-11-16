@@ -2,6 +2,6 @@
 
 public enum Layer
 {
-   Floor ,Wall
+   UI,Floor ,Wall, Item, Unit, Biom
     
 };

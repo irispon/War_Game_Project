@@ -35,43 +35,65 @@ public class SpriteSpliter : MonoBehaviour
     public static void Sprite2TextureFile(Sprite[] sprites)
     {
         Texture2D SpriteTexture;
+        Texture2D texture; ;
         int i = 0;
+       
         foreach (Sprite sprite in sprites)
         {
-
-
-            SpriteTexture = new Texture2D((int)sprite.rect.width, (int)sprite.rect.height);
-
-            Color[] c = sprite.texture.GetPixels((int)sprite.textureRect.x,
-                                         (int)sprite.textureRect.y,
-                                         (int)sprite.textureRect.width,
-                                         (int)sprite.textureRect.height);
-
-            SpriteTexture.SetPixels(c);
-            SpriteTexture.Apply();
-
-            /*
-             
-            
-            var tImporter = AssetImporter.GetAtPath(assetPath) as TextureImporter;
-            if (tImporter != null)
+            try
             {
-                tImporter.textureType = TextureImporterType.Advanced;
+                texture = sprite.texture;
+                
+                SpriteTexture = new Texture2D((int)sprite.rect.width, (int)sprite.rect.height);
 
-                tImporter.isReadable = true;
 
-                AssetDatabase.ImportAsset(assetPath);
-                AssetDatabase.Refresh();
+                int width = (int)sprite.textureRect.width ;
+                int height = (int)sprite.textureRect.height;
+                int arraySize =width*height+1;
+
+                Color[] c = sprite.texture.GetPixels((int)sprite.textureRect.x,
+                                             (int)sprite.textureRect.y,
+                                             (int)sprite.rect.width,
+                                             (int)sprite.rect.height);
+
+
+
+
+
+                SpriteTexture.SetPixels(c);
+                SpriteTexture.Apply();
+
+                /*
+
+
+                var tImporter = AssetImporter.GetAtPath(assetPath) as TextureImporter;
+                if (tImporter != null)
+                {
+                    tImporter.textureType = TextureImporterType.Advanced;
+
+                    tImporter.isReadable = true;
+
+                    AssetDatabase.ImportAsset(assetPath);
+                    AssetDatabase.Refresh();
+                }
+
+
+                 */
+
+
+
+
+                ByteArrayToFile("sprite" + i + ".png", SpriteTexture.EncodeToPNG());
+                i++;
+
             }
-             
-             
-             */
+            catch (Exception e)
+            {
+
+                Debug.Log("d" + e);
+            }
 
 
-
-
-            ByteArrayToFile("sprite" + i + ".png", SpriteTexture.EncodeToPNG());
-            i++;
         }
 
 

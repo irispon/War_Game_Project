@@ -16,7 +16,7 @@ public class FieldManager : MonoBehaviour
     public GameObject[] Unit;							        	//Unit
     public Transform boardHolder;
     private static FieldManager instance;
-    private FloorManager floorTiles;                                 //바닥
+    private TileManager floorTiles;                                 //바닥
 
 
 
@@ -53,7 +53,7 @@ public class FieldManager : MonoBehaviour
 
     private void init()
     {
-        floorTiles = FloorManager.getInstance();
+        floorTiles = TileManager.getInstance();
 
     }
 
@@ -81,23 +81,20 @@ public class FieldManager : MonoBehaviour
             for (int y = -1; y < rows + 1; y++)
             {
                 GameObject instance;
-                GameObject toInstantiate;
+   
                 if (x == -1 || x == columns || y == -1 || y == rows)
                 {
-                    toInstantiate = outerWallTiles[Random.Range(0, outerWallTiles.Length)];
-                    instance =
-                    Instantiate(toInstantiate) as GameObject;
-                    instance.GetComponent<Transform>().position = new Vector3(x, y, 0f);
+                    instance = floorTiles.MakeFloor("Core_Wall", new Vector3(x, y, 0f));
 
                 } else
                 {
-                    instance = floorTiles.MakeFloor(new Vector3(x, y, 0f));
+                    instance = floorTiles.MakeFloor("Core_Dirt",new Vector3(x, y, 0f));
                     
 
                 }
 
 
-               // instance.transform.SetParent(boardHolder);
+                instance.transform.SetParent(boardHolder);
                
             }
         }

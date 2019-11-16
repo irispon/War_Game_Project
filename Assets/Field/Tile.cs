@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-public class Floor : MonoBehaviour
+public class Tile : MonoBehaviour
 {
 
     private FieldProperty fieldProperty;
@@ -15,6 +15,7 @@ public class Floor : MonoBehaviour
 
         sprite = GetComponent<SpriteRenderer>();
         fieldTransform = GetComponent<Transform>();
+       
     }
 
     public void setProperty(FieldProperty fieldProperty)
@@ -23,9 +24,12 @@ public class Floor : MonoBehaviour
         this.fieldProperty = fieldProperty;
         List<Sprite> sprites = this.fieldProperty.sprites;
         sprite.sprite = sprites[Random.Range(0,sprites.Count)];
-        Debug.Log(""+sprite.sprite.rect);
-       
+        // Debug.Log(""+sprite.sprite.rect);
+
        name = this.fieldProperty.uqName;
+       gameObject.layer = LayerMask.NameToLayer(this.fieldProperty.type.ToString());
+        //this.fieldProperty.type.ToString() -> Layer이름
+
     }
 
     public void setTransform(Vector3 transform)

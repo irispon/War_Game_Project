@@ -300,7 +300,7 @@ public class Load : MonoBehaviour
                 Debug.Log("타일 레이어 " + fieldProperty.type);
                 Debug.Log("타일 방해도 " + fieldProperty.disturbanceDegree);
 
-                FloorManager.getInstance().addProperty(fieldProperty);
+                TileManager.getInstance().addProperty(fieldProperty);
 
 
             }
