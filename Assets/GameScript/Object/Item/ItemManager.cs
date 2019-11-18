@@ -71,23 +71,6 @@ public class ItemManager : MonoBehaviour /*베이스 아이템 오브젝트. 기
 
     }
 
-    public ItemManager DecoWeapon()
-    {
-
-        return this;
-    }
-
-    public ItemManager DecoWear()
-    {
-
-        return this;
-    }
-
-    public ItemManager DecoFuniture()
-    {
-
-        return this;
-    }
 
     public void Make(ItemInfo iteminfo)
     {
@@ -96,7 +79,6 @@ public class ItemManager : MonoBehaviour /*베이스 아이템 오브젝트. 기
         Vector3 vec = new Vector3(random.Next(0, 10),  random.Next(0, 10), 0);
         item.GetComponent<Transform>().position = vec;
         item.GetComponent<ItemObject>().Make(iteminfo);
-        item.name = iteminfo.getUqName();
         Get(iteminfo.getUqName());
 
 

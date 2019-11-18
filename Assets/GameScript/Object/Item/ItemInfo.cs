@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class ItemInfo
 {
+
+    /*폼 변경을 넣어야 될 듯.*/
     private string uniqueName;/*일단은 필요 없는 부분일 듯*/
     private string defName="이름없음";
     private string label="";

@@ -3,6 +3,8 @@ using UnityEngine;
 
 public class ItemObject: MonoBehaviour
 {
+
+   
     public ItemInfo itemInfo;
     private SpriteRenderer graphic;
 
@@ -10,6 +12,7 @@ public class ItemObject: MonoBehaviour
     {
         
         Set(itemInfo);
+        
         this.Join();
 
     }
@@ -32,7 +35,7 @@ public class ItemObject: MonoBehaviour
     {
 
         this.itemInfo = itemInfo.Copy();
-
+        name = itemInfo.getUqName();
         graphic.sprite = itemInfo.getSprite();
         
  

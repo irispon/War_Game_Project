@@ -189,6 +189,8 @@ public class Load : MonoBehaviour
     private void LoadItem(String path, XmlNodeList nodeList)
     {
 
+        /*item type에 따라 받는 xml을 달리 하면 될거 같은데.*/
+
         String modName = nodeList.Item(0).ParentNode.Attributes[XMLManager.ItemInfo.MODNAME].Value;
         int index = path.IndexOf(modName)+modName.Length+1;
         String modPath = path.Substring(0,index);

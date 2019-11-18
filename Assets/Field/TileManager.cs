@@ -6,8 +6,8 @@ using UnityEngine;
 public class TileManager :MonoBehaviour
 {
     public GameObject tile;
-    public Dictionary<string,FieldProperty> floorProperties;
-    public Dictionary<string, FieldProperty> WallProperties;
+    private Dictionary<string,FieldProperty> floorProperties;
+    private Dictionary<string, FieldProperty> WallProperties;
     private static TileManager Instance;
 
     private void Awake()
