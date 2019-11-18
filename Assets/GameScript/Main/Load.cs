@@ -8,31 +8,32 @@ public class Load : MonoBehaviour
 {
 
     //모드 목록
-    private List<String> modPaths = new List<string>();
-    //모드 아이템 폴더 경로
+    private const string MODLISTDIR = "./ModList/ModList.xml";
+    private const string MODDIR = "MoDir"; /*xml tag*/
+    private List<String> modPaths;
 
 
-    // Start is called before the first frame update
-    private XMLManager xMLManager = new XMLManager();
     public GameObject[] Managers;
     public GameObject fieldManager;
 
     void Awake()
     {
-
+      
+        modPaths = new List<string>();
         foreach (GameObject manager in Managers)
         {
+            
             Instantiate(manager);
 
         }
 
 
 
-        xMLManager.Load(XMLManager.ModList.MODLISTDIR, new XMLManager.XmlLoad(LoadModList) );
+        XMLManager.Load(XMLManager.ModList.MODLISTDIR, new XMLManager.XmlLoad(LoadModList) );
 
     }
 
-    private void LoadModList(String path, XmlNodeList nodeList)/*모드의 리스트를 받는 xml입니다.*/
+    private void LoadModList(String path, XmlNodeList nodeList)/*모드의 리스트를 받는 xml.*/
     {
 
         /*내부 xml string*/
@@ -63,7 +64,7 @@ public class Load : MonoBehaviour
             {
                 foreach (string modpath in modPaths)
                 {
-                    xMLManager.Load(modpath + XMLManager.ModInfo.MODINFOPATH, new XMLManager.XmlLoad(LoadModInfo));
+                    XMLManager.Load(modpath + XMLManager.ModInfo.MODINFOPATH, new XMLManager.XmlLoad(LoadModInfo));
                     
                 }
 
@@ -151,7 +152,7 @@ public class Load : MonoBehaviour
                 {
 
                    print(path.Replace(XMLManager.ModInfo.MODINFOPATH,itemDir));
-                   xMLManager.Load(path.Replace(XMLManager.ModInfo.MODINFOPATH, itemDir),new XMLManager.XmlLoad(LoadItem));
+                    XMLManager.Load(path.Replace(XMLManager.ModInfo.MODINFOPATH, itemDir),new XMLManager.XmlLoad(LoadItem));
                 }
 
             }
@@ -163,7 +164,7 @@ public class Load : MonoBehaviour
                 {
 
                     print(path.Replace(XMLManager.ModInfo.MODINFOPATH, fieldDir));
-                    xMLManager.Load(path.Replace(XMLManager.ModInfo.MODINFOPATH, fieldDir), new XMLManager.XmlLoad(LoadField));
+                    XMLManager.Load(path.Replace(XMLManager.ModInfo.MODINFOPATH, fieldDir), new XMLManager.XmlLoad(LoadField));
                 }
 
             }

@@ -196,7 +196,7 @@ public class XMLManager
         return xmlDoc;
     }
 
-    public XmlNodeList Load(string path)
+    public static XmlNodeList Load(string path)
     {
 
         XmlDocument xmldoc = new XmlDocument();
@@ -244,7 +244,7 @@ public class XMLManager
 
     }
 
-    public void Load(string path, XmlLoad xml)
+    public static void Load(string path, XmlLoad xml)
     {
 
         try{
@@ -266,31 +266,8 @@ public class XMLManager
 
     }
 
-    public void Load(string path, string modName, XmlLoad xml)
-    {
 
-        try
-        {
-
-            xml(path, Load(path));
-
-        }
-        catch (NullReferenceException e)
-        {
-
-            Debug.Log("01:xml Load 오류(null point)");
-
-        }
-        catch (Exception e)
-        {
-            Debug.Log(e);
-
-        }
-
-
-    }
-
-    public delegate void XmlLoad(String path,XmlNodeList nodes);
+    public  delegate void XmlLoad(string path ,XmlNodeList nodes);
 
 
 }
