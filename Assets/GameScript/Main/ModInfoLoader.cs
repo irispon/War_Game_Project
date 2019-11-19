@@ -79,9 +79,17 @@ public class ModInfoLoader : Loader
 
             }
 
-
-
-            LoadObject(Items, new ItemLoader());
+            Debug.Log("item 로딩 에러");
+            try
+            {
+                LoadObject(Items, new ItemLoader());
+            }
+            catch (Exception e)
+            {
+                Debug.Log("item 로딩 에러");
+            }
+            
+           
             LoadObject(fields, new TileLoader());
 
 
