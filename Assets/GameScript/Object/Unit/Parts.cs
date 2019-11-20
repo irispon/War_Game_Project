@@ -4,7 +4,7 @@ using UnityEngine;
 
 public enum Parts
 {
-    eye, arm, leg, body
+    eye, arm, leg, body, head
 
 }
 

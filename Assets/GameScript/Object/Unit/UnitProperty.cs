@@ -5,7 +5,7 @@ using UnityEngine;
 public class UnitProperty
 {
     public int speed { get; set; }
-    public int strongCoefficient { get;set;}
+    public int durableCoefficient { get;set;}
     private List<Organ> organs = new List<Organ>();
 
 
