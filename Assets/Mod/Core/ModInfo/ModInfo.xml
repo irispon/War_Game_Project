@@ -4,6 +4,7 @@
 			<Items>/Items/Weapon/Weapons.xml</Items>
 			<Fields>/Fields/FieldAtribute.xml</Fields>
             <Scripts>True</Scripts>
-            <OtherThing>False</OtherThing>
+      <OtherThing>/Things/Organ.xml</OtherThing>
+      <OtherThing>/Things/Race.xml</OtherThing>
         </ModInfo>
    </ModInfomation>

@@ -6,12 +6,24 @@ using UnityEngine;
 
 public class ItemLoader : Loader
 {
-    public override void Load(string path, XmlNodeList nodeList)
+
+    private const string LABEL = "label";
+    private const string DESCRIPTION = "description";
+    private const string STUFFCATEGORIES = "stuffCategories";
+
+    private const string GRAPHICDATA = "graphicData";
+    private const string GRAPHICCLASS = "graphicClass";
+    private const string TEXPATH = "texPath";
+
+
+
+
+public override void Load(string path, XmlNodeList nodeList)
     {
 
         /*item type에 따라 받는 xml을 달리 하면 될거 같은데.*/
 
-        string modName = nodeList.Item(0).ParentNode.Attributes[XMLManager.ItemInfo.MODNAME].Value;
+        string modName = nodeList.Item(0).ParentNode.Attributes[MODNAME].Value;
         int index = path.IndexOf(modName) + modName.Length + 1;
         string modPath = path.Substring(0, index);
         
@@ -21,20 +33,20 @@ public class ItemLoader : Loader
             {
 
 
-                string itemThingDefName = node.Attributes[XMLManager.ItemInfo.PARENTNAME].Value;
+                string itemThingDefName = node.Attributes[PARENTNAME].Value;
 
-                string itemDefName = node.SelectSingleNode(XMLManager.ItemInfo.DEFNAME).InnerText;
-                string itemDecription = node.SelectSingleNode(XMLManager.ItemInfo.DESCRIPTION).InnerText;
+                string itemDefName = node.SelectSingleNode(DEFNAME).InnerText;
+                string itemDecription = node.SelectSingleNode(LABEL).InnerText;
 
-                XmlNode graphicDef = node.SelectSingleNode(XMLManager.ItemInfo.GRAPHICDATA);
-                string graphicDir = graphicDef.SelectSingleNode(XMLManager.ItemInfo.GraphicData.TEXPATH).InnerText;
+                XmlNode graphicDef = node.SelectSingleNode(GRAPHICDATA);
+                string graphicDir = graphicDef.SelectSingleNode(TEXPATH).InnerText;
                 graphicDir = modPath + graphicDir;
-                string graphicType = graphicDef.SelectSingleNode(XMLManager.ItemInfo.GraphicData.GRAPHICCLASS).InnerText;
+                string graphicType = graphicDef.SelectSingleNode(GRAPHICCLASS).InnerText;
 
 
-                string label = node.SelectSingleNode(XMLManager.ItemInfo.LABEL).InnerText;
-                string decripton = node.SelectSingleNode(XMLManager.ItemInfo.DESCRIPTION).InnerText;
-                string stuffCategories = node.SelectSingleNode(XMLManager.ItemInfo.STUFFCATEGORIES).InnerText;
+                string label = node.SelectSingleNode(LABEL).InnerText;
+                string decripton = node.SelectSingleNode(DESCRIPTION).InnerText;
+                string stuffCategories = node.SelectSingleNode(STUFFCATEGORIES).InnerText;
 
 
                 Debug.Log("고유 이름 " + modName);

@@ -9,7 +9,8 @@ public class ModInfoLoader : Loader
     private const string ITEMS = "Items";// /*xml tag*/
     private const  string FIELDS = "Fields"; /*xml tag*/
     private const  string SCRIPTS = "Scripts"; /*xml tag*/ //true or false 
-    private const  string OTHERTING = "OtherThing"; /*xml tag*/ //true or false 
+    private const  string OTHERTING = "OtherThing"; /*xml tag*/
+
 
     private string path;
 
@@ -21,7 +22,7 @@ public class ModInfoLoader : Loader
         this.path = path;
         List<String> Items = new List<string>();
         List<String> fields = new List<string>();
-
+        List<String> otherthings = new List<string>();
         try
         {
             foreach (XmlNode node in nodeList)
@@ -33,7 +34,7 @@ public class ModInfoLoader : Loader
                     XmlNodeList itemDir = node.SelectNodes(ITEMS);
                     foreach (XmlNode itemNode in itemDir)
                     {
-                        Debug.Log("주소" + itemNode.InnerText);
+                        Debug.Log("아이템 주소" + itemNode.InnerText);
                         Items.Add(itemNode.InnerText);
 
                     }
@@ -63,9 +64,17 @@ public class ModInfoLoader : Loader
                     Debug.Log("Scripts false");
                 }
 
-                if (node.SelectSingleNode(OTHERTING).InnerText.Equals("True"))
+                if (!node.SelectSingleNode(OTHERTING).InnerText.Equals("False"))
                 {
-                    Debug.Log("OtherThing true");
+                    XmlNodeList itemDir = node.SelectNodes(OTHERTING);
+                    foreach (XmlNode itemNode in itemDir)
+                    {
+                        Debug.Log("기타 주소" + itemNode.InnerText);
+                        otherthings.Add(itemNode.InnerText);
+
+                    }
+
+
 
 
                 }
@@ -79,7 +88,6 @@ public class ModInfoLoader : Loader
 
             }
 
-            Debug.Log("item 로딩 에러");
             try
             {
                 LoadObject(Items, new ItemLoader());
@@ -88,9 +96,24 @@ public class ModInfoLoader : Loader
             {
                 Debug.Log("item 로딩 에러");
             }
-            
-           
-            LoadObject(fields, new TileLoader());
+            try
+            {
+                LoadObject(fields, new TileLoader());
+            }
+            catch (Exception e)
+            {
+                Debug.Log("fields 로딩 에러");
+            }
+            try
+            {
+                LoadObject(otherthings, new ThingLoader());
+            }
+            catch (Exception e)
+            {
+                Debug.Log("item 로딩 에러");
+            }
+
+ 
 
 
         }
@@ -109,6 +132,8 @@ public class ModInfoLoader : Loader
     }
 
 
+
+    /*이 메소드를 나중에 loader 기본 메소드로 둬도 괜찮을 듯*/
     private void LoadObject(List<string> dirs, Loader loader)
     {
         if (dirs.Count >= 1)
