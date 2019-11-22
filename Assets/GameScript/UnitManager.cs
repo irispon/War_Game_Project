@@ -50,7 +50,7 @@ public class UnitManager
 
         lock (Lock)
         {
-            WList<Unit> clon_units = units.clone();
+            WList<Unit> clon_units = units.Clone();
 
             foreach (Unit unit in clon_units)
             {

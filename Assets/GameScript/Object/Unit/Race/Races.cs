@@ -8,7 +8,7 @@ public class Races:Singleton<Races>
     private Dictionary<string, Race> races;
 
     /// <summary>
-    /// GetInstance()를 이용하세요
+    /// GetInstance()를 이용하여 생성하세요
     /// </summary>
     public Races()
     {
@@ -22,11 +22,12 @@ public class Races:Singleton<Races>
 
     }
 
-    public Race getOrgan(string uqName)
+    public Race getRace(string uqName)
     {
+        Race race = races[uqName].Clone();
+        race.parts = race.parts.Clone();
 
-
-        return races[uqName].Clone();
+        return race;
     }
 
    

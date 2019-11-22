@@ -254,7 +254,7 @@ public class XMLManager
         }
         catch (NullReferenceException e){
 
-            Debug.Log("01:xml Load 오류(null point)");
+            Debug.Log("01:xml Load 오류(null point)"+e);
 
         }
         catch (Exception e)
