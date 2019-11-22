@@ -5,12 +5,13 @@ using UnityEngine;
 public class Organ
 {
     /*XMLTAGS*/
-    public static readonly string THINGDEF = "ThingDef";
-    public static readonly string DEFNAME = "defName";
-    public static readonly string PART = "part";
-    public static readonly string DURABLE = "durable";
-    public static readonly string NECESSARY = "necessary";
-    public static readonly string EFFICIENCY = "efficiency";
+    public const string THINGDEF = "ThingDef";
+    public const string DEFNAME = "defName";
+    public const string PART = "part";
+    public const string DURABLE = "durable";
+    public const string NECESSARY = "necessary";
+    public const string EFFICIENCY = "efficiency";
+    public const string CATAGORY= "Organ";
     /*XMLTAGS*/
 
 
@@ -23,12 +24,12 @@ public class Organ
     public int hp { get; set; } = 0;
 
 
-    public float efficiency { get; set; }
+    public float efficiency { get; set; } = 1.0f;
 
     public Parts parts { get; set; }
 
 
-    public void GetDamage(int damager)
+    public void GetDamage(int damage)
     {
 
 
@@ -46,6 +47,5 @@ public class Organ
         return (Organ)this.MemberwiseClone();
     }
 
-   
 
 }

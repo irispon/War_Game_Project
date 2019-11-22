@@ -1,8 +1,8 @@
-<Organs ModName ="Core">
+<Races ModName ="Core">
    <catagory>Race</catagory>
 		<ThingDef ParentName="Human">
             <defName>인간</defName>
-            <efficiency>100</efficiency>
+            <efficiency>1.0</efficiency>
 			<parts>Human_HEAD,Human_EYE,Human_ARM,Human_LEG,Human_BODY</parts>
 		</ThingDef>
-</Organs>	 
+</Races>	 

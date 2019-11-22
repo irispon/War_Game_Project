@@ -46,7 +46,7 @@ public class TileLoader : Loader
 
 
 
-                    fieldProperty.type = FieldProperty.Parse(node.SelectSingleNode(XMLManager.Field.TYPE).InnerText);
+                    fieldProperty.type = EnumUtills.Parse<Layer>(node.SelectSingleNode(XMLManager.Field.TYPE).InnerText);
 
 
                 }

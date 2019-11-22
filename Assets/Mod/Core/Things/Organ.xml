@@ -2,34 +2,34 @@
    <catagory>Organ</catagory>
    		<ThingDef ParentName="Human_HEAD">
             <defName>머리</defName>
-			<part>head</part>
+			      <part>head</part>
             <durable>15</durable>
-			<necessary>true</necessary>
-            <efficiency>100</efficiency>
+			      <necessary>true</necessary>
+            <efficiency>1.0</efficiency>
          </ThingDef>
 		<ThingDef ParentName="Human_EYE">
             <defName>눈</defName>
-			<part>eye</part>
+		    	  <part>eye</part>
             <durable>5</durable>
-            <efficiency>100</efficiency>
+            <efficiency>1.0</efficiency>
          </ThingDef>
 		 <ThingDef ParentName="Human_ARM">
             <defName>팔</defName>
 			<part>arm</part>
             <durable>15</durable>
-            <efficiency>100</efficiency>
+            <efficiency>1.0</efficiency>
          </ThingDef>
 		 <ThingDef ParentName="Human_LEG">
             <defName>다리</defName>
 			<part>leg</part>
             <durable>15</durable>
-            <efficiency>100</efficiency>
+            <efficiency>1.0</efficiency>
          </ThingDef>
 		 <ThingDef ParentName="Human_BODY">
             <defName>몸통</defName>
 			<part>body</part>
             <necessary>true</necessary>
             <durable>60</durable>
-            <efficiency>100</efficiency>
+            <efficiency>1.0</efficiency>
          </ThingDef>
 </Organs>	  

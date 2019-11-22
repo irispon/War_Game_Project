@@ -27,35 +27,5 @@ public class FieldProperty
     }
 
 
-    public static Layer Parse(string type)
-    {
-        Layer layer = Layer.Floor;
-
-        try
-        {
-            layer = (Layer)Enum.Parse(typeof(Layer), type);
-            Debug.Log("Layer:" + layer.ToString());
-
-            return layer;
-        }
-        catch(Exception e)
-        {
-            Debug.Log("Type 변경 실패 디폴트 설정으로 변경됩니다.");
-
-          
-            
-        }
-
-        return layer;
-
-        
-
- 
-    }
-
-
-
-    
-
 }
 
