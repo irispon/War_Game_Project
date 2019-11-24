@@ -6,6 +6,8 @@
             <durable>15</durable>
 			      <necessary>true</necessary>
             <efficiency>1.0</efficiency>
+        <!----> 이 파츠가 어떤 능력에 추가적으로 영향을 주는지도 적는게 필요할 듯(ex 시력에 x만큼 조작에 x만큼)
+        
          </ThingDef>
 		<ThingDef ParentName="Human_EYE">
             <defName>눈</defName>
@@ -15,7 +17,7 @@
          </ThingDef>
 		 <ThingDef ParentName="Human_ARM">
             <defName>팔</defName>
-			<part>arm</part>
+			      <part>arm</part>
             <durable>15</durable>
             <efficiency>1.0</efficiency>
          </ThingDef>

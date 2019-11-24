@@ -1,8 +1,54 @@
 <Races ModName ="Core">
    <catagory>Race</catagory>
 		<ThingDef ParentName="Human">
-            <defName>인간</defName>
-            <efficiency>1.0</efficiency>
-			<parts>Human_HEAD,Human_EYE,Human_ARM,Human_LEG,Human_BODY</parts>
+     <defName>인간</defName>
+			<part>
+        <organDef>Human_HEAD</organDef>
+        <name>머리</name>
+        <efficiency>1.0</efficiency>
+      </part>
+      
+     <part>
+      <organDef>Human_EYE</organDef>
+      <name>오른쪽 눈</name>
+      <efficiency>0.5</efficiency>
+     </part>
+      
+     <part>
+        <organDef>Human_EYE</organDef>
+        <name>왼쪽 눈</name>
+        <efficiency>0.5</efficiency>
+     </part>
+      
+     <part>
+        <organDef>Human_ARM</organDef>
+        <name>왼팔</name>
+        <efficiency>1.0</efficiency>
+     </part>
+      
+    <part>
+      <organDef>Human_ARM</organDef>
+      <name>오른팔</name>
+      <efficiency>1.0</efficiency>
+    </part>
+      
+      <part>
+        <organDef>Human_LEG</organDef>
+        <name>왼다리</name>
+        <efficiency>1.0</efficiency>
+      </part>
+      
+      <part>
+        <organDef>Human_LEG</organDef>
+        <name>오른다리</name>
+        <efficiency>1.0</efficiency>
+      </part>
+      
+      <part>
+        <organDef>Human_BODY</organDef>
+        <name>몸통</name>
+        <efficiency>1.0</efficiency>
+      </part>
+      
 		</ThingDef>
 </Races>	 
