@@ -114,7 +114,7 @@ public class ThingLoader :Loader
             {
                 string organDef = part.SelectSingleNode(Race.ORGANDEF).InnerText;
                 string organName = part.SelectSingleNode(Race.ORGANNAME).InnerText;
-                Debug.Log("유닛 오르간 추가:" + organName);
+                Debug.Log("유닛 장기 추가:" + organName);
                 Organ organ = Organs.GetInstance().getOrgan(organDef);
                 try
                 {

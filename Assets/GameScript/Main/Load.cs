@@ -29,7 +29,7 @@ public class Load : MonoBehaviour
 
         new ModLoader().Load();
         Instantiate(fieldManager);
-
+        UnitFactory.Generate<Unit>();
 
 
     }

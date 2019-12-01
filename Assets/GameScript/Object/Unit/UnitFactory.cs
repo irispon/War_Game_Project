@@ -2,17 +2,23 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class UnitFactory : MonoBehaviour
+public class UnitFactory:MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+
+
+
+    public static void Generate<T>() where T: Unit
     {
+
+        GameObject gameObject = new GameObject();
+        gameObject.AddComponent<T>();
+        T t = gameObject.GetComponent<T>();
+        t.Generate();
+        Instantiate(gameObject);
+        
         
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    
+
 }

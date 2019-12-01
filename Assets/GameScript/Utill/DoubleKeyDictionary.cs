@@ -26,6 +26,7 @@ public class DoubleKeyDictionary<K1,K2,Value>:Dictionary<K1,Dictionary<K2,Value>
 
     public void Add(K1 key1,K2 key2, Value value)
     {
+
         if (this[key1] == null)
         {
             this[key1] = new Dictionary<K2, Value>();

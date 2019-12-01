@@ -35,7 +35,7 @@ public class WDictionary<TKey, TValue> : Dictionary<TKey, TValue>
     }
     protected WDictionary(SerializationInfo info, StreamingContext context):base(info,context)
     {
-
+        
 
     }
 

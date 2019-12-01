@@ -7,13 +7,14 @@ public class Unit : MonoBehaviour, ISelectable, IMoveable
 {
 
    private UnitManager unitMnager = UnitManager.getInstance();
-   private SpriteRenderer SpriteRenderer;
+   private SpriteRenderer spriteRenderer;
    private UnitProperty unitProperty;
 
 
     public void Awake()
     {
-        SpriteRenderer = GetComponent<SpriteRenderer>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
+      //  spriteRenderer.sprite= SpriteLoader.LoadNewSprite("/Splites/sprite0.png");
 
     }
     public void Deselect()
@@ -46,7 +47,21 @@ public class Unit : MonoBehaviour, ISelectable, IMoveable
 
     }
 
+    public void setUnitProperty(string raceUqName)
+    {
+        unitProperty = new UnitProperty(raceUqName);
 
+    }
+    public void setUnitProperty(Race race)
+    {
+        unitProperty = new UnitProperty(race);
+
+    }
+
+    public void setUnitProperty(UnitProperty unitProperty)
+    {
+        this.unitProperty = unitProperty;
+    }
     // Start is called before the first frame update
     void Start()
     {
@@ -58,4 +73,25 @@ public class Unit : MonoBehaviour, ISelectable, IMoveable
     {
         
     }
+
+    public void Generate()
+    {
+        Generate(Races.GetInstance().getRace());
+
+    }
+
+    public void Generate(string raceName)
+    {
+        Generate(Races.GetInstance().getRace(raceName));
+    }
+
+    private void Generate(Race race)
+    {
+        setUnitProperty(race);
+       
+
+    }
+
+
+
 }

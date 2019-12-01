@@ -13,11 +13,17 @@ public class UnitProperty
     public Sprite sprite { get; set; }
     public Animation animation { get; set; }
 
-    public UnitProperty(string raceUqName)
+    public UnitProperty(string raceUqName): this(Races.GetInstance().getRace(raceUqName))
+    {
+     
+
+    }
+
+    public UnitProperty(Race race)
     {
         organs = new DoubleKeyDictionary<Parts, string, Organ>();
-        setRace(raceUqName);
-        setOrgan(race);
+        this.race = race;
+        setOrgan(this.race);
     }
 
     public void setRace(string uqName)
@@ -40,14 +46,24 @@ public class UnitProperty
 
 
     }
+    public void setRace(Race race)
+    {
+
+
+        this.race = race;
+
+
+    }
 
     private void setOrgan(Race race)
     {
         Organs organList = Organs.GetInstance();
+        Debug.Log(race.name);
         foreach (string organName in race.parts.Keys)
         {
             Organ organ = race.parts[organName];
-            organs.Add(organ.part,organ.name,organ.Clone());
+            Debug.Log(organ.part+ organ.name);
+           organs.Add(organ.part,organ.name,organ.Clone());
 
         }
 

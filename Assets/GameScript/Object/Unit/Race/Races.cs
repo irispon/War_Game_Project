@@ -21,6 +21,10 @@ public class Races:Singleton<Races>
         races.Add(race.uqName, race);
 
     }
+    public Race getRace()
+    {
+        return getRace(DictionaryAccessUtill.RandomKey(races));
+    }
 
     public Race getRace(string uqName)
     {
