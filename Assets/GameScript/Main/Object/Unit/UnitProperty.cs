@@ -6,7 +6,6 @@ public class UnitProperty
 {
     public int speed { get; set; }
     private Race race;
-    private DoubleKeyDictionary<Parts, string, Organ> organs;
 
     
 
@@ -21,9 +20,8 @@ public class UnitProperty
 
     public UnitProperty(Race race)
     {
-        organs = new DoubleKeyDictionary<Parts, string, Organ>();
-        this.race = race;
-        setOrgan(this.race);
+
+        setRace(race);
     }
 
     public void setRace(string uqName)
@@ -52,35 +50,12 @@ public class UnitProperty
 
         this.race = race;
 
-
     }
 
-    private void setOrgan(Race race)
-    {
-        Organs organList = Organs.GetInstance();
-        Debug.Log(race.name);
-        foreach (string organName in race.parts.Keys)
-        {
-            Organ organ = race.parts[organName];
-            Debug.Log(organ.part+ organ.name);
-           organs.Add(organ.part,organ.name,organ.Clone());
-
-        }
-
-        setOrganDurable();
-    }
 
     private void setOrganDurable()
     {
-        if (race.efficiency != 1.0f)
-        {
-            foreach (Organ organ in organs.Values)
-            {
 
-                organ.Durable = (int)(race.efficiency * organ.Durable);
-
-            }
-        }
 
     }
 
@@ -88,35 +63,35 @@ public class UnitProperty
 
     public void TakeDamage(int damage)
     {
-        Parts part = DictionaryAccessUtill.RandomKey(organs);
+        Parts part = DictionaryAccessUtill.RandomKey(race.parts);
         TakeDamage(part, damage);
 
     }
 
     public void TakeHeal(int heal)
     {
-        Parts part = DictionaryAccessUtill.RandomKey(organs);
+        Parts part = DictionaryAccessUtill.RandomKey(race.parts);
         TakeHeal(part, heal);
     }
 
     public void TakeDamage(Parts part, int damage)
     {
-        string randomkey = DictionaryAccessUtill.RandomKey(organs[part]);
+        string randomkey = DictionaryAccessUtill.RandomKey(race.parts[part]);
         TakeDamage(part, randomkey, damage);
     }
     public void TakeHeal(Parts part, int heal)
     {
-        string randomkey = DictionaryAccessUtill.RandomKey(organs[part]);
+        string randomkey = DictionaryAccessUtill.RandomKey(race.parts[part]);
         TakeHeal(part, randomkey, heal);
 
     }
     public void TakeDamage(Parts part, string organ,int damage)
     {
-        organs[part][organ].TkaeDamage(damage);
+        race.parts[part][organ].TkaeDamage(damage);
     }
     public void TakeHeal(Parts part, string organ, int heal)
     {
-        organs[part][organ].TakeHeal(heal);
+        race.parts[part][organ].TakeHeal(heal);
 
     }
 

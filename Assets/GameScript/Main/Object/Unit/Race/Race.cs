@@ -14,14 +14,14 @@ public class Race
     public const string ORGANNAME = "name";
 
     // public WList<string> parts { get; set; } = null;
-    public WDictionary<string, Organ> parts { get; set; } = null;
+    public DoubleKeyDictionary<Parts, string, Organ> parts { get; set; } = null;
     public string uqName { get; set; }
     public string name { get; set; } = "default";
     public float efficiency { get; set; } = 1.0f;
 
     public Race()
     {
-        parts = new WDictionary<string, Organ>();
+        parts = new DoubleKeyDictionary<Parts, string, Organ>();
 
     }
     public void setDurable(float coefficient)
@@ -32,6 +32,7 @@ public class Race
 
     public Race Clone()
     {
+        parts = parts.Clone();
         return (Race)this.MemberwiseClone();
     }
 }

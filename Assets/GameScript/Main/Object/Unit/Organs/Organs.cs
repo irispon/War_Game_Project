@@ -24,6 +24,12 @@ public class Organs:Singleton<Organs>
         organs.Add(organ.uqName, organ);
 
     }
+    public Organ getOrgan()
+    {
+        return getOrgan(DictionaryAccessUtill.RandomKey(organs));
+
+       
+    }
 
     public Organ getOrgan(string uqName)
     {

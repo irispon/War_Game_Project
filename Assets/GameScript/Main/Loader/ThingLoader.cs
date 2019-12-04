@@ -119,6 +119,7 @@ public class ThingLoader :Loader
                 try
                 {
                     organ.efficiency *= float.Parse(part.SelectSingleNode(Race.EFFICIENCY).InnerText);
+                    organ.name = organName;
                 }
                 catch (Exception e)
                 {
@@ -126,8 +127,8 @@ public class ThingLoader :Loader
                 }
 
                 organ.efficiency *= float.Parse(part.SelectSingleNode(Race.EFFICIENCY).InnerText);
-              
-                race.parts.Add(organName, organ);
+                
+                race.parts.Add(organ.part,organ.name, organ);
                 
             }
 
@@ -150,18 +151,28 @@ public class ThingLoader :Loader
         }
 
 
-        /*
+
         // clone 테스트
+        Debug.Log("클론 테스트");
         Race test1 = races.getRace("Human");
         Race test2 = races.getRace("Human");
-        ItemInfo info = new ItemInfo();
-        ItemInfo info1 = info.Copy();
+        test1.parts.Add(Parts.eye,"시발련아",Organs.GetInstance().getOrgan());
 
-        info1.setDefName("aaa");
-        Debug.Log("test1 part:" + info1.getDefName());
-        Debug.Log("test2 part:" + info.getDefName());
+        Debug.Log(test1.Equals(test2));
 
-    */
+        foreach (Organ organ in test1.parts.Values)
+        {
+
+            Debug.Log("test1 part:" + organ.name);
+        }
+        foreach (Organ organ in test2.parts.Values)
+        {
+
+            Debug.Log("test2 part:" + organ.name);
+        }
+
+
+  
 
 
     }
