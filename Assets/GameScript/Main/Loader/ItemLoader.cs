@@ -61,7 +61,8 @@ public override void Load(string path, XmlNodeList nodeList)
                 ItemInfo item = new ItemInfo();
                 item.setDecription(decripton).setDefName(itemDefName).setUqName(itemThingDefName).setLabel(label).setGrapic(graphicDir, graphicType);
 
-                ItemManager.GetInstatnce().Make(item);
+                ItemDcitionary.instance.AddItem(item);
+                //ItemManager.GetInstatnce().Make(item);
 
 
             }

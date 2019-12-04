@@ -21,14 +21,16 @@ public class ItemManager : MonoBehaviour /*베이스 아이템 오브젝트. 기
         {
 
             instance = this;
-        }else if(instance != this)
+            items = new Dictionary<string, ItemObject>();
+        }
+        else if(instance != this)
         {
 
             Destroy(gameObject);
         }
 
         DontDestroyOnLoad(gameObject);
-        items = new Dictionary<string, ItemObject>();
+        
 
     }
 
@@ -45,6 +47,8 @@ public class ItemManager : MonoBehaviour /*베이스 아이템 오브젝트. 기
         items.Add(def,item);
 
     }
+
+
 
     public void Get(string def)
     {
@@ -75,11 +79,11 @@ public class ItemManager : MonoBehaviour /*베이스 아이템 오브젝트. 기
     public void Make(ItemInfo iteminfo)
     {
         GameObject item = Instantiate(this.item);
-        System.Random random = new System.Random();
-        Vector3 vec = new Vector3(random.Next(0, 10),  random.Next(0, 10), 0);
-        item.GetComponent<Transform>().position = vec;
-        item.GetComponent<ItemObject>().Make(iteminfo);
-        Get(iteminfo.getUqName());
+       // System.Random random = new System.Random();
+       // Vector3 vec = new Vector3(random.Next(0, 10),  random.Next(0, 10), 0);
+       // item.GetComponent<Transform>().position = vec;
+        //item.GetComponent<ItemObject>().Make(iteminfo);
+        //Get(iteminfo.getUqName());
 
 
     }

@@ -86,5 +86,12 @@ public class Organ
         return (Organ)this.MemberwiseClone();
     }
 
+    public override string ToString()
+    {
+
+
+        return name;
+    }
+
 
 }

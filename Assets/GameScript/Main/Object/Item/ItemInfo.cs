@@ -10,6 +10,7 @@ public class ItemInfo
     private string defName="이름없음";
     private string label="";
     private string description="설명 없음";
+    private ItemType itemType = ItemType.Item;
     /*그래픽; 관련. 추후 타입을 스프라이트로 변경. 그래픽 타입은 enum으로 만들어서 single double 등등 으로 변경 예정*/
     private string grapicPath="";
     private string grapicType="";
@@ -21,7 +22,12 @@ public class ItemInfo
 
         return this;
     }
+    public ItemInfo setitemType(ItemType itemType)
+    {
+        this.itemType = itemType;
 
+        return this;
+    }
     public ItemInfo setDefName(string name)
     {
         defName = name;
@@ -98,6 +104,11 @@ public class ItemInfo
     }
 
 
+    public ItemType getItemType()
+    {
+
+        return itemType;
+    }
     public ItemInfo Copy()
     {
 

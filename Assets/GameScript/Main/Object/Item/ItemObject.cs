@@ -8,17 +8,10 @@ public class ItemObject: MonoBehaviour
     public ItemInfo itemInfo;
     private SpriteRenderer graphic;
 
-    public void Make(ItemInfo itemInfo)
-    {
-        
-        Set(itemInfo);
-        
-        this.Join();
-
-    }
 
     private void Awake()
     {
+        
         graphic = GetComponent<SpriteRenderer>();
 
     }
@@ -34,14 +27,13 @@ public class ItemObject: MonoBehaviour
     public void Set(ItemInfo itemInfo)
     {
 
-        this.itemInfo = itemInfo.Copy();
-        name = itemInfo.getUqName();
+       // this.itemInfo = itemInfo.Copy();
+        name = itemInfo.getDefName();
         graphic.sprite = itemInfo.getSprite();
         
  
 
     }
-
 
     public ItemObject Clon()
     {
@@ -51,14 +43,7 @@ public class ItemObject: MonoBehaviour
 
     }
 
-    private void Join()
-    {
 
-        ItemManager itemManager = ItemManager.GetInstatnce();
-        
-        itemManager.Join(itemInfo.getUqName(),this);
-
-    }
 
 
 

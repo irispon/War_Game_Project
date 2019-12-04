@@ -13,23 +13,11 @@ public class Load : MonoBehaviour
     private List<String> modPaths;
 
 
-    public GameObject[] Managers;
-    public GameObject fieldManager;
-
     void Awake()
     {
       
-        modPaths = new List<string>();
-        foreach (GameObject manager in Managers)
-        {
-            
-            Instantiate(manager);
-
-        }
-
+        modPaths = new List<string>(); 
         new ModLoader().Load();
-        Instantiate(fieldManager);
-        UnitFactory.Generate<Unit>();
 
 
     }

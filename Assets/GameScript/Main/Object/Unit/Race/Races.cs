@@ -29,7 +29,7 @@ public class Races:Singleton<Races>
     public Race getRace(string uqName)
     {
         Race race = races[uqName].Clone();
-        race.parts = race.parts.Clone();
+    
 
         return race;
     }
