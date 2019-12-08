@@ -7,12 +7,13 @@ public class MouseEvent
 {
     public void OnClick(Event @event)
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonUp(0))
             @event();
         
 
         // 클릭시 반응
     }
+
     public void OnDrag(Event @event)
     {
         @event();
