@@ -1,0 +1,8 @@
+  <Introduction >
+    <Infomation>
+      <Name>Core</Name>
+	  <SubDescribe>중요한 모드</SubDescribe>
+	  <Describe>이 모드는 기본적인 모드입니다. 반드시 포함시켜야합니다.</Describe>
+      <NecessaryMode>None</NecessaryMode>
+	 </Infomation>
+   </Introduction>

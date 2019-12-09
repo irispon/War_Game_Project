@@ -8,7 +8,7 @@ public abstract class Loader : Loadable
     protected const string PARENTNAME = "ParentName";
     protected const string DEFNAME = "defName";
     protected const string MODNAME = "ModName";
-    protected const string MODINFOPATH = "/ModInfo/ModInfo.xml"; /*xml tag*/
+    protected const string MODINFOPATH = "/ModInfo.xml"; /*xml tag*/
 
     protected XMLManager xmlManager;
     public Loader()

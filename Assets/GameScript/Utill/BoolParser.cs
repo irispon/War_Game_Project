@@ -12,6 +12,7 @@ public class BoolParser
                 return true;
 
             case "false":
+            case "none":
             case "f":
             case "0":
                 return false;
