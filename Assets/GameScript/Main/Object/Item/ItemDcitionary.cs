@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ItemDcitionary : SingletonObject<ItemDcitionary>
+public class ItemDcitionary : SingletonObjectSlave<ItemDcitionary>
 {
     public Dictionary<string, ItemInfo> iteminfos { get; private set; }
 

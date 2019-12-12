@@ -1,0 +1,28 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class MainViewManager : SingletonObject<MainViewManager>
+{
+    [SerializeField]
+    public GameObject ModMenu;
+
+
+    protected override void Awake()
+    {
+        base.Awake();
+        
+    }
+
+    public void OpenModMenu()
+    {
+        GameObject menu = Instantiate(ModMenu);
+        
+        RectTransform rectTransform = menu.GetComponent<RectTransform>();
+
+      
+        rectTransform.SetParent(gameObject.transform);
+        rectTransform.localScale = new Vector2(1f, 1f);
+    }
+
+}

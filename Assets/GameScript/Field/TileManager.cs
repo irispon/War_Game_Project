@@ -3,30 +3,20 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TileManager :MonoBehaviour
+public class TileManager :SingletonObjectSlave<TileManager>
 {
     public GameObject tile;
     private Dictionary<string,FieldProperty> floorProperties;
     private Dictionary<string, FieldProperty> WallProperties;
     private static TileManager Instance;
 
-    private void Awake()
+    protected override void Awake()
     {
-        if (Instance ==null)
-        {
-            Instance = this;
-            floorProperties = new Dictionary<string, FieldProperty>();
+
+        base.Awake();
+        floorProperties = new Dictionary<string, FieldProperty>();
             //WallProperties = new Dictionary<string, FieldProperty>();  
-        }
-        else
-        {
-            Destroy(gameObject);
-          
 
-        }
-
-        DontDestroyOnLoad(gameObject);
-     
 
     }
 

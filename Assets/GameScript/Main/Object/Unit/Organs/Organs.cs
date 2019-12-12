@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Organs:Singleton<Organs>
+public class Organs:SingletonSlave<Organs>
 {
 
 

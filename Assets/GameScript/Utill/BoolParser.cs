@@ -22,4 +22,17 @@ public class BoolParser
 
     }
 
+    public static bool isBool(string text)
+    {
+        try
+        {
+            Parse(text);
+        }
+        catch (InvalidCastException e)
+        {
+            return false;
+        }
+
+        return true;
+    }
 }

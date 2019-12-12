@@ -5,7 +5,7 @@ using System.IO;
 using System.Xml;
 using UnityEngine;
 
-public class ModCrwaler : SingletonObject<ModCrwaler>
+public class ModCrwaler : SingletonObjectSlave<ModCrwaler>
 {
     private string PATH= "./Assets/Mod";
     private string FileName = "Introduction.xml";
@@ -16,9 +16,17 @@ public class ModCrwaler : SingletonObject<ModCrwaler>
     {
         base.Awake();
         infoes = new List<ModInfo>(30);
-        Load(PATH);
+       
+
     }
 
+    public void GetMods()
+    {
+
+        Load(PATH);
+        MainViewManager.instance.OpenModMenu();
+    }
+    
     void Start()
     {
 
@@ -27,7 +35,7 @@ public class ModCrwaler : SingletonObject<ModCrwaler>
 
     private void Load(string path)
     {
-
+        infoes.Clear();
         DirectoryInfo modDirectory = new DirectoryInfo(@path);
         DirectoryInfo[] subDirectorires = modDirectory.GetDirectories();
         foreach(DirectoryInfo subDirectory in subDirectorires)
@@ -64,7 +72,7 @@ public class ModCrwaler : SingletonObject<ModCrwaler>
             info.directory = path;
             try
             {
-                if (BoolParser.Parse(node.SelectSingleNode(ModInfo.NECESSARYMODE).InnerText) != false)
+                if (BoolParser.isBool(node.SelectSingleNode(ModInfo.NECESSARYMODE).InnerText) == false)
                 {
                     info.necessaryMode = node.SelectSingleNode(ModInfo.NECESSARYMODE).InnerText.Split(',');
                 }

@@ -86,7 +86,15 @@ public class ThingLoader :Loader
 
             Debug.Log("xml 노드 확인: " + ThingDefName);
 
-            organs.addOrgan(organ);
+            try
+            {
+                organs.addOrgan(organ);
+            }
+            catch(Exception e)
+            {
+                Debug.Log("여기다");
+            }
+          
         }
 
     }

@@ -18,7 +18,7 @@ public class ModInfoLoader : Loader
     {
 
         /*이 부분에서 수정이 필요할 것 같음.*/
-
+        
         this.path = path;
         List<String> Items = new List<string>();
         List<String> fields = new List<string>();

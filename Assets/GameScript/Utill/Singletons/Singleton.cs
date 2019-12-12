@@ -9,7 +9,7 @@ public class Singleton <T> where T :class,  new()
     private static Object lockObj= new Object();
     protected static T instance=null;
 
-
+ 
 
     public static T GetInstance()
     {
@@ -29,5 +29,6 @@ public class Singleton <T> where T :class,  new()
         
         return instance;
     }
+
 
 }

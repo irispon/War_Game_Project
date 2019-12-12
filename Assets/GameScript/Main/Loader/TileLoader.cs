@@ -62,7 +62,7 @@ public class TileLoader : Loader
                 Debug.Log("타일 레이어 " + fieldProperty.type);
                 Debug.Log("타일 방해도 " + fieldProperty.disturbanceDegree);
 
-                TileManager.getInstance().addProperty(fieldProperty);
+                TileManager.instance.addProperty(fieldProperty);
 
 
             }

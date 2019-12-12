@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Races:Singleton<Races>
+public class Races:SingletonSlave<Races>
 {
 
     private Dictionary<string, Race> races;
@@ -10,7 +10,7 @@ public class Races:Singleton<Races>
     /// <summary>
     /// GetInstance()를 이용하여 생성하세요
     /// </summary>
-    public Races()
+    public Races():base()
     {
         races = new Dictionary<string, Race>();
 
@@ -35,5 +35,10 @@ public class Races:Singleton<Races>
     }
 
    
+    public override void Init()
+    {
+        base.Init();
+        races.Clear();
+    }
 
 }
