@@ -29,6 +29,7 @@ public class ModMenuMnanger : MonoBehaviour
            GameObject content= Instantiate(this.content);
            contentManager = content.GetComponent<ContentManager>();
            contentManager.setText(info.name);
+            contentManager.descibeText = info.describe;
             RectTransform contentRect = content.GetComponent<RectTransform>();
             contentRect.SetParent(contentParent.transform);
             contentRect.localScale = new Vector2(1f, 1f);

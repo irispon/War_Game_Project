@@ -11,7 +11,10 @@ public class MainViewManager : SingletonObject<MainViewManager>
     protected override void Awake()
     {
         base.Awake();
-        
+        Screen.SetResolution(Screen.width, Screen.width *1920 /1080,true);
+
+
+
     }
 
     public void OpenModMenu()
