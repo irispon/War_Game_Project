@@ -19,7 +19,7 @@ public class SingletonObject<T> : MonoBehaviour where T:SingletonObject<T>
         {
             Destroy(gameObject);
         }
-        DontDestroyOnLoad(gameObject);
+      //  DontDestroyOnLoad(gameObject);
     }
     // Start is called before the first frame update
     void Start()

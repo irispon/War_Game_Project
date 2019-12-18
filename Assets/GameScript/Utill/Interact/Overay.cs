@@ -17,13 +17,13 @@ public class Overay : MonoBehaviour
         RectTransform rectTransform = GetComponent<RectTransform>();
         if (rectTransform != null)
         {
-                Debug.Log("렉트 트랜스폼");
+             //   Debug.Log("렉트 트랜스폼");
                 originScale = rectTransform.localScale;
                 overScale = new Vector3(0.3f, 0.3f, 0f) + rectTransform.localScale;
 
         }else if (transform != null)
         {
-            Debug.Log("트랜스폼");
+         //   Debug.Log("트랜스폼");
             originScale = transform.localScale;
             overScale = new Vector3(0.3f, 0.3f, 0f) + transform.localScale;
 
@@ -44,7 +44,7 @@ public class Overay : MonoBehaviour
     
     private void  OnMouseOver()
     {
-        Debug.Log("테스팅");
+        //Debug.Log("테스팅");
         transform.localScale = overScale;
 
     }

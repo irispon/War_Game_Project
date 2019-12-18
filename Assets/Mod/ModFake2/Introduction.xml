@@ -1,0 +1,8 @@
+  <Introduction >
+    <Infomation>
+      <Name>테스트2</Name>
+	  <SubDescribe>테스팅 모드</SubDescribe>
+	  <Describe>테스트용 모드임니다.</Describe>
+      <NecessaryMode>None</NecessaryMode>
+	 </Infomation>
+   </Introduction>

@@ -2,8 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ModMenuMnanger : MonoBehaviour
+public class ModMenuMnanger : SingletonObject<ModMenuMnanger>
 {
+    [SerializeField]
+    GameObject self;
     [SerializeField]
     GameObject contentParent;
     [SerializeField]
@@ -12,8 +14,9 @@ public class ModMenuMnanger : MonoBehaviour
     ContentManager contentManager;
     RectTransform parent;
     List<ModInfo> infose;
-    protected void Awake()
+    protected override void Awake()
     {
+        base.Awake();
         
          parent = contentParent.GetComponent<RectTransform>();
          infose = ModCrwaler.instance.infoes;
@@ -29,12 +32,16 @@ public class ModMenuMnanger : MonoBehaviour
            GameObject content= Instantiate(this.content);
            contentManager = content.GetComponent<ContentManager>();
            contentManager.setText(info.name);
-            contentManager.descibeText = info.describe;
+           contentManager.descibeText = info.describe;
             RectTransform contentRect = content.GetComponent<RectTransform>();
             contentRect.SetParent(contentParent.transform);
             contentRect.localScale = new Vector2(1f, 1f);
+   
         }
 
     }
+
+
+
 
 }
