@@ -26,8 +26,8 @@ public class MainViewManager : SingletonObject<MainViewManager>
        
         rectTransform.SetParent(gameObject.transform);
         rectTransform.localScale = new Vector2(1f, 1f);
-        rectTransform.anchoredPosition = new Vector2(0f, 0f);
-        Debug.Log(rectTransform.position.x);
+        rectTransform.anchoredPosition = new Vector2((Screen.width / 2)- rectTransform.rect.width, 0f);
+     //   Debug.Log(rectTransform.position.x);
     }
 
     

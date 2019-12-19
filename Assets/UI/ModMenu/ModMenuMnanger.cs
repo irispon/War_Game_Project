@@ -14,20 +14,21 @@ public class ModMenuMnanger : SingletonObject<ModMenuMnanger>
     ContentManager contentManager;
     RectTransform parent;
     List<ModInfo> infose;
+    List<GameObject> infoObjects;
     protected override void Awake()
     {
         base.Awake();
-        
+        infoObjects = new List<GameObject>();
          parent = contentParent.GetComponent<RectTransform>();
-         infose = ModCrwaler.instance.infoes;
+        infose = new List<ModInfo>(ModCrwaler.instance.infoes);
         setModList();
     }
 
 
-    public void setModList()
+    private void setModList()
     {
-
-        foreach(ModInfo info in infose)
+        
+        foreach (ModInfo info in infose)
         {
            GameObject content= Instantiate(this.content);
            contentManager = content.GetComponent<ContentManager>();
@@ -36,12 +37,30 @@ public class ModMenuMnanger : SingletonObject<ModMenuMnanger>
             RectTransform contentRect = content.GetComponent<RectTransform>();
             contentRect.SetParent(contentParent.transform);
             contentRect.localScale = new Vector2(1f, 1f);
-   
+            infoObjects.Add(content);
+
+
         }
 
     }
 
+    /*
+    public void ObjectListClear()
+    {
+        foreach(GameObject infoObj in infoObjects)
+        {
+            Destroy(infoObj);
+        }
 
-
+    }
+    public void Remove(GameObject obj)
+    {
+       if(infoObjects.Contains(obj))
+        {
+            infoObjects.Remove(obj);
+            Destroy(obj);
+        }
+    }
+*/
 
 }

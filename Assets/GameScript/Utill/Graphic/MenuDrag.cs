@@ -1,18 +1,31 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-public class MenuDrag : MonoBehaviour
+using UnityEngine.EventSystems;
+public class MenuDrag : MonoBehaviour,IDragHandler,IPointerDownHandler
 {
-    // Start is called before the first frame update
-    void Start()
+    private const float dragSpeed = 300f;
+    private RectTransform dragOrigin;
+    private Vector2 originPoint;
+
+    protected void Awake()
     {
-        
+        dragOrigin = gameObject.GetComponent<RectTransform>();
+
     }
 
-    // Update is called once per frame
-    void Update()
+    public void OnDrag(PointerEventData eventData)
     {
+      
         
+        Vector2 pos = originPoint+ eventData.position- eventData.pressPosition;
+        dragOrigin.anchoredPosition = pos;
     }
+
+    public void OnPointerDown(PointerEventData eventData)
+    {
+        originPoint = dragOrigin.anchoredPosition;
+    }
+
+
 }

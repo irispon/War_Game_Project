@@ -13,7 +13,7 @@ public class ContentManager : MonoBehaviour, OverayMenu
     [SerializeField]
     GameObject describePanel;
     private GameObject cloneDescribePanel;
-    private const float padding = 80f; 
+    private const float padding = +60f; 
 
 
     public string descibeText { get; set; }
@@ -43,7 +43,7 @@ public class ContentManager : MonoBehaviour, OverayMenu
         RectTransform modMenuTransform = ModMenuMnanger.instance.GetComponent<RectTransform>();
         cloneTransform.SetParent(MainViewManager.instance.transform);
         cloneTransform.localScale = new Vector2(1f, 1f);
-        cloneTransform.anchoredPosition = modMenuTransform.anchoredPosition + new Vector2(modMenuTransform.rect.width+ padding, 0f);
+        cloneTransform.anchoredPosition = modMenuTransform.anchoredPosition + new Vector2(modMenuTransform.rect.width/2+ cloneTransform.rect.width/2, 0f);
         
         
     }
