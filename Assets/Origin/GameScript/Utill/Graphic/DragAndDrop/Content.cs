@@ -1,0 +1,63 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.EventSystems;
+
+public class Content : MonoBehaviour,IDrop,IDrag 
+{
+
+    private Container container;
+    // Start is called before the first frame update
+    void Start()
+    {
+        container = Container.instance;
+        
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        
+    }
+
+    public virtual void OnBeginDrag(PointerEventData eventData)
+    {
+        Debug.Log(this.name +"OnBeginDrag");
+        container.content = this.gameObject;
+    }
+
+    public virtual void OnDrag(PointerEventData eventData)
+    {
+        
+       //이미지 끌려가는 걸 표현(중요도 낮음)
+    }
+
+    public virtual void OnDrop(PointerEventData eventData)
+    {
+        Debug.Log("변경"+ container.content.name);
+        container.content.transform.SetSiblingIndex(transform.GetSiblingIndex());
+        container.content = null;
+    }
+
+    public virtual void OnEndDrag(PointerEventData eventData)
+    {
+        if (container.content == this.gameObject) container.content = null;
+    }
+
+    public virtual void OnPointerEnter(PointerEventData eventData)
+    {
+        GameObject content = container.content;
+      
+        if (content !=null && content != this.gameObject)
+        {
+            Debug.Log(content.name+"=>"+ this.name);
+           
+        }
+        //포인터가 들어가면 색 바뀜
+    }
+
+    public virtual void OnPointerExit(PointerEventData eventData)
+    {
+        //포인터가 나가면 원래 색
+    }
+}
