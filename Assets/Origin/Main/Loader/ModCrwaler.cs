@@ -7,16 +7,17 @@ using UnityEngine;
 
 public class ModCrwaler : SingletonObjectSlave<ModCrwaler>
 {
-    private string PATH= "./Assets/Mod";
+    public string PATH { get; private set; }= "./Assets/Mod";
     private string FileName = "Introduction.xml";
     public List<ModInfo> infoes { get; private set; }
+    public List<String> modList { get; private set; }
     // Start is called before the first frame update
 
     protected override void Awake()
     {
         base.Awake();
         infoes = new List<ModInfo>(30);
-       
+        modList = ModListLoader.MODLIST;
 
     }
 
@@ -84,10 +85,12 @@ public class ModCrwaler : SingletonObjectSlave<ModCrwaler>
 
             info.describe = node.SelectSingleNode(ModInfo.DESCRIBE).InnerText;
             info.subdescribe = node.SelectSingleNode(ModInfo.SUBDESCRIBE).InnerText;
+            
             Debug.Log(info.name);
             Debug.Log(info.describe);
             Debug.Log(info.subdescribe);
             infoes.Add(info);
+            
 
         }
 

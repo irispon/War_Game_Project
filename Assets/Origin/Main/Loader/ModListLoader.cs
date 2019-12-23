@@ -6,16 +6,22 @@ using UnityEngine;
 
 public class ModListLoader:Loader
 {
-   
+
+    public static List<String> MODLIST;
+
+   public List<String> ModList { get; private set; }
 
     public override void Load(string path ,XmlNodeList nodeList)
     {
         List<String> modPaths = new List<string>();
+        MODLIST = new List<string>();
+        MODLIST.Clear();
         try
         {
             foreach (XmlNode node in nodeList)
             {
-
+                MODLIST.Add(node.SelectSingleNode("ModName").InnerText);
+         //       Debug.Log(node.SelectSingleNode("ModName").InnerText);
                 modPaths.Add(node.LastChild.InnerText);
             }
 

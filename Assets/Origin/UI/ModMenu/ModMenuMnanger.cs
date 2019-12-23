@@ -5,20 +5,24 @@ using UnityEngine;
 public class ModMenuMnanger : SingletonObject<ModMenuMnanger>
 {
     [SerializeField]
-    GameObject contentParent;
+    GameObject unFillContent;
+    [SerializeField]
+    GameObject fillContent;
     [SerializeField]
     GameObject content;
 
     ContentManager contentManager;
     RectTransform parent;
     List<ModInfo> infose;
-    List<GameObject> infoObjects;
+    List<string> modList;
+    // List<GameObject> infoObjects;
     protected override void Awake()
     {
         base.Awake();
-        infoObjects = new List<GameObject>();
-         parent = contentParent.GetComponent<RectTransform>();
+     //   infoObjects = new List<GameObject>();
+         parent = unFillContent.GetComponent<RectTransform>();
         infose = new List<ModInfo>(ModCrwaler.instance.infoes);
+        modList = new List<string>(ModCrwaler.instance.modList);
         setModList();
     }
 
@@ -28,27 +32,43 @@ public class ModMenuMnanger : SingletonObject<ModMenuMnanger>
         int i = 0;
         foreach (ModInfo info in infose)
         {
-
-           GameObject content= Instantiate(this.content);
+            GameObject content = Instantiate(this.content);
             content.name = "컨텐츠" + i;
             i++;
 
             RectTransform contentRect = content.GetComponent<RectTransform>();
 
             contentManager = content.GetComponent<ContentManager>();
-            contentManager.setText(info.name);
-            contentManager.descibeText = info.describe;
-            contentRect.SetParent(contentParent.transform);
+            contentManager.setInfo(info);
 
+
+            if (!modList.Contains(info.name))
+            {
+                contentRect.SetParent(unFillContent.transform);
+            }
+            else
+            {
+                contentRect.SetParent(fillContent.transform);
+            }
             contentRect.localScale = new Vector2(1f, 1f);
 
-            infoObjects.Add(content);
+            //    infoObjects.Add(content);
 
 
         }
 
     }
+    public void Activate()
+    {
+      foreach(Transform child in fillContent.transform)
+        {
 
+            ContentManager content = child.gameObject.GetComponent<ContentManager>();
+            Debug.Log("모드 적용: "+content.info.name);
+
+        }
+
+    }
     /*
     public void ObjectListClear()
     {

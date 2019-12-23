@@ -13,14 +13,21 @@ public class ContentManager : MonoBehaviour, OverayMenu
     [SerializeField]
     GameObject describePanel;
     private GameObject cloneDescribePanel;
-    private const float padding = +60f; 
+    private const float padding = +60f;
 
-
-    public string descibeText { get; set; }
+    public ModInfo info { get; private set; }
     public Sprite sprite { get; set; }
 
-    public void setText(string content)
+    public void setInfo(ModInfo info)
     {
+        this.info = info;
+        setText(info.name);
+     
+
+    }
+    private void setText(string content)
+    {
+       
         Text contentText = text.GetComponent<Text>();
         contentText.text = content;
 
@@ -32,12 +39,13 @@ public class ContentManager : MonoBehaviour, OverayMenu
         modImage.sprite = sprite;
     }
 
+
     public void OnPointerEnter(PointerEventData eventData)
     {
 
         cloneDescribePanel = Instantiate(describePanel);
         ModDescribeManager manager = cloneDescribePanel.GetComponent<ModDescribeManager>();
-        manager.SetDescribe(descibeText);
+        manager.SetDescribe(info.describe);
         manager.SetImage(sprite);
         RectTransform cloneTransform = cloneDescribePanel.GetComponent<RectTransform>();
         RectTransform modMenuTransform = ModMenuMnanger.instance.GetComponent<RectTransform>();

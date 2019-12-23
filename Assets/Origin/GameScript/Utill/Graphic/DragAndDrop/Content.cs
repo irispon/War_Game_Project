@@ -6,9 +6,9 @@ using UnityEngine.EventSystems;
 public class Content : MonoBehaviour,IDrop,IDrag 
 {
 
-    private Container container;
+    protected Container container;
     // Start is called before the first frame update
-    void Start()
+    public void Start()
     {
         container = Container.instance;
         
@@ -34,7 +34,12 @@ public class Content : MonoBehaviour,IDrop,IDrag
 
     public virtual void OnDrop(PointerEventData eventData)
     {
+        Transform containerContent = container.content.transform;
         Debug.Log("변경"+ container.content.name);
+        if (!containerContent.transform.parent.Equals(transform.parent))
+        {
+            containerContent.transform.SetParent(transform.parent);
+        }
         container.content.transform.SetSiblingIndex(transform.GetSiblingIndex());
         container.content = null;
     }
