@@ -14,7 +14,7 @@ public class FieldManager : MonoBehaviour
     public GameObject[] wallTiles;                                  //벽
     public GameObject[] outerWallTiles;                             //외벽
     public GameObject[] Unit;							        	//Unit
-    public Transform boardHolder;
+    private Transform boardHolder;
     private static FieldManager instance;
     private TileManager floorTiles;                                 //바닥
 
@@ -34,7 +34,7 @@ public class FieldManager : MonoBehaviour
 
         }
 
-        DontDestroyOnLoad(gameObject);
+       // DontDestroyOnLoad(gameObject);
 
     }
 
@@ -53,7 +53,8 @@ public class FieldManager : MonoBehaviour
 
     private void init()
     {
-        floorTiles = TileManager.getInstance();
+        Debug.Log("초기화");
+        floorTiles = TileManager.instance;
 
     }
 
@@ -84,6 +85,7 @@ public class FieldManager : MonoBehaviour
    
                 if (x == -1 || x == columns || y == -1 || y == rows)
                 {
+                    Debug.Log("FloorTile?");
                     instance = floorTiles.MakeFloor("Core_Wall", new Vector3(x, y, 0f));
 
                 } else

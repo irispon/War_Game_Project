@@ -23,6 +23,7 @@ public class Tile : MonoBehaviour
 
         this.fieldProperty = fieldProperty;
         List<Sprite> sprites = this.fieldProperty.sprites;
+        sprite.sortingOrder= (int)fieldProperty.type;
         sprite.sprite = sprites[Random.Range(0,sprites.Count)];
         // Debug.Log(""+sprite.sprite.rect);
 

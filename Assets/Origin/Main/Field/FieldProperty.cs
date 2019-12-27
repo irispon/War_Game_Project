@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FieldProperty
+public class FieldProperty:IObjectInfo
 {
     public double disturbanceDegree { get; set; } = 0;
     public Layer type { get; set; } = Layer.Floor;
@@ -22,10 +22,25 @@ public class FieldProperty
 
     public void addSprite(String path)
     {
+     
+      
         sprites.Add(SpriteLoader.LoadNewSprite(path));
 
     }
 
+    public string GetName()
+    {
+        return name;
+    }
 
+    public string GetUqName()
+    {
+        return uqName;
+    }
+
+    public Sprite GetSprite()
+    {
+        return sprites[0];
+    }
 }
 

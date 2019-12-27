@@ -45,7 +45,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   columns: 15
   rows: 8
-  floor: {fileID: 6283441122543625127, guid: c877ad684edb88648b8846fc7f52004e, type: 3}
+  floor: {fileID: 0}
   wallTiles: []
   outerWallTiles:
   - {fileID: 4804647186497118842, guid: 26645174b7bb35841b02c674ddf0e06e, type: 3}

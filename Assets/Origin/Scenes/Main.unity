@@ -643,7 +643,7 @@ PrefabInstance:
     - target: {fileID: 1286579101147309951, guid: 08595add00cca39439409ec206421a51,
         type: 3}
       propertyPath: sceanName
-      value: TestCeanes
+      value: TestGame
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 08595add00cca39439409ec206421a51, type: 3}

@@ -7,7 +7,7 @@ public class TileManager :SingletonObjectSlave<TileManager>
 {
     public GameObject tile;
     private Dictionary<string,FieldProperty> floorProperties;
-    private Dictionary<string, FieldProperty> WallProperties;
+    //private Dictionary<string, FieldProperty> WallProperties;
     private static TileManager Instance;
 
     protected override void Awake()
@@ -29,6 +29,7 @@ public class TileManager :SingletonObjectSlave<TileManager>
 
     public void addProperty(FieldProperty fieldProperty)
     {
+        Debug.Log("바닥 추가"+ fieldProperty.uqName);
         floorProperties.Add(fieldProperty.uqName,fieldProperty);
 
     }
@@ -43,7 +44,7 @@ public class TileManager :SingletonObjectSlave<TileManager>
     //}
     public GameObject MakeFloor(string name, Vector3 vector)
     {
-        
+     
         GameObject floorObj = Instantiate(this.tile);
         Tile tile = floorObj.GetComponent<Tile>();
         FieldProperty fieldProperty;
@@ -66,6 +67,10 @@ public class TileManager :SingletonObjectSlave<TileManager>
         return floorObj;
     }
 
+    public Dictionary<string,FieldProperty> getDictionary()
+    {
 
+        return floorProperties;
+    }
 
 }

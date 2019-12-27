@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ItemInfo
+public class ItemInfo:IObjectInfo
 {
 
     /*폼 변경을 넣어야 될 듯.*/
@@ -119,5 +119,20 @@ public class ItemInfo
     {
      
 
+    }
+
+    public string GetName()
+    {
+        return defName;
+    }
+
+    public string GetUqName()
+    {
+        return uniqueName;
+    }
+
+    public Sprite GetSprite()
+    {
+        return sprite;
     }
 }
