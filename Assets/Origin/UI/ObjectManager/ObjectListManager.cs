@@ -7,27 +7,41 @@ using UnityEngine.UI;
 public class ObjectListManager : SingletonObject<ObjectListManager>
 {
     private List<GameObject> metaObjects;
+    private Category state;
     [SerializeField]
     GameObject metaObject;
 
     protected override void Awake()
     {
         base.Awake();
+        state = Category.None;
         metaObjects = new List<GameObject>();
     }
-    public void Change(Manager Mode)
+    public void Change(Category Mode)
     {
-        clear();
 
         switch (Mode)
         {
-            case Manager.ItemManager:
-                Debug.Log("아이템 목록");
-                getItems();
+            case Category.Item:
+                if (state != Category.Item)
+                {
+                    clear();
+                    Debug.Log("아이템 목록");
+                    state = Category.Item;
+                    getItems(); 
+                    
+                }
+
                 break;
-            case Manager.TileManager:
-                Debug.Log("타일 목록");
-                getTiles();
+            case Category.Tile:
+                if (state != Category.Tile)
+                {
+                    clear();
+                    state = Category.Tile;
+                    Debug.Log("타일 목록");
+                    getTiles();
+                }
+
                 break;
             default:
                 break;
@@ -59,17 +73,17 @@ public class ObjectListManager : SingletonObject<ObjectListManager>
     private void setMetaData(IObjectInfo info)
     {
 
-
-            GameObject metaData = Instantiate(metaObject);
-            Image image = metaData.GetComponentInChildren<Image>();
-        TextMeshProUGUI textMesh = metaData.GetComponentInChildren<TextMeshProUGUI>();
-            image.sprite = info.GetSprite();
-             metaData.transform.SetParent(transform);
+        // 크기 조정
+        GameObject metaData = Instantiate(metaObject);
+        metaData.transform.SetParent(transform);
         metaData.transform.localScale = new Vector3(1, 1, 1);
         RectTransform rect = metaData.GetComponent<RectTransform>();
         rect.anchoredPosition3D = new Vector3(rect.anchoredPosition3D.x, rect.anchoredPosition3D.y, 0);
-         textMesh.text = info.GetName();
-            metaObjects.Add(metaData);
+   
+        //데이터 설정
+        MetaData data = metaData.GetComponentInChildren<MetaData>();
+        data.SetObjectInfo(info);
+        metaObjects.Add(metaData);
        
 
     }

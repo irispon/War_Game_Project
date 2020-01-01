@@ -7,7 +7,7 @@ public class Container : SingletonObject<Container>
     
     [HideInInspector] public GameObject content { get; set; }
 
-    private void Awake()
+    protected override void Awake()
     {
         base.Awake();
         content = null;

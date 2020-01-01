@@ -42,5 +42,10 @@ public class FieldProperty:IObjectInfo
     {
         return sprites[0];
     }
+
+    public Category GetCategory()
+    {
+        return Category.Tile;
+    }
 }
 

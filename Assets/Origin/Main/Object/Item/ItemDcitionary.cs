@@ -34,18 +34,16 @@ public class ItemDcitionary : SingletonObjectSlave<ItemDcitionary>
     
     }
 
-    public void Make(string itemUq)
+
+    public GameObject Make(string itemUq)
     {
-
-
         ItemInfo iteminfo = GetItem(itemUq);
         switch (iteminfo.getItemType())
         {
             case ItemType.Apparel:
                 break;
             case ItemType.Item:
-                Make<ItemObject>(iteminfo);
-                break;
+               return Make<ItemObject>(iteminfo);
             case ItemType.Weapon:
                 break;
             case ItemType.OtherThing:
@@ -54,30 +52,20 @@ public class ItemDcitionary : SingletonObjectSlave<ItemDcitionary>
             default:
                 break;
         }
+        throw new ArgumentException("해당되는 아이템이 없습니다.");
     }
 
-
-
-    private void Make<T>(ItemInfo iteminfo) where T : ItemObject
+    private GameObject Make<T>(ItemInfo iteminfo) where T : ItemObject
     {
         GameObject itemObject = new GameObject();
         itemObject.AddComponent<SpriteRenderer>();
         itemObject.AddComponent<T>();
         T t = itemObject.GetComponent<T>();
         t.Set(iteminfo);
+
+        return itemObject;
         //Instantiate(itemObject);
     }
 
-  
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

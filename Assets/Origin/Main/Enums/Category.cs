@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum Manager
+public enum Category
 {
-    TileManager,ItemManager
+    Tile,Item,None
 }

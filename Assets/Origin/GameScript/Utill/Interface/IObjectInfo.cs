@@ -7,5 +7,5 @@ public interface IObjectInfo
     string GetName();
     string GetUqName();
     Sprite GetSprite();
-
+    Category GetCategory();
 }

@@ -8,22 +8,16 @@ public class TileManager :SingletonObjectSlave<TileManager>
     public GameObject tile;
     private Dictionary<string,FieldProperty> floorProperties;
     //private Dictionary<string, FieldProperty> WallProperties;
-    private static TileManager Instance;
+   
 
     protected override void Awake()
     {
-
+      
         base.Awake();
         floorProperties = new Dictionary<string, FieldProperty>();
             //WallProperties = new Dictionary<string, FieldProperty>();  
 
 
-    }
-
-    public static TileManager getInstance()
-    {
-
-        return Instance;
     }
 
 
@@ -64,6 +58,31 @@ public class TileManager :SingletonObjectSlave<TileManager>
 
         tile.setProperty(fieldProperty);
         tile.setTransform(vector);
+        return floorObj;
+    }
+
+    public GameObject MakeFloor(string uqName)
+    {
+
+        GameObject floorObj = Instantiate(this.tile);
+        Tile tile = floorObj.GetComponent<Tile>();
+        FieldProperty fieldProperty;
+
+        try
+        {
+
+            fieldProperty = floorProperties[uqName];
+
+        }
+        catch (Exception ex)
+        {
+
+       
+            throw new ArgumentException("바닥 생성 오류! "+ex);
+      
+        }
+
+        tile.setProperty(fieldProperty);
         return floorObj;
     }
 

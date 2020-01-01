@@ -85,7 +85,7 @@ public class FieldManager : MonoBehaviour
    
                 if (x == -1 || x == columns || y == -1 || y == rows)
                 {
-                    Debug.Log("FloorTile?");
+                   
                     instance = floorTiles.MakeFloor("Core_Wall", new Vector3(x, y, 0f));
 
                 } else
@@ -103,6 +103,9 @@ public class FieldManager : MonoBehaviour
     }
 
 
-
+    public Transform GetBoard()
+    {
+        return boardHolder;
+    }
 
 }

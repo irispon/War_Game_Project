@@ -5,7 +5,7 @@ using UnityEngine;
 public class ChangeButton : MonoBehaviour
 {
     [SerializeField]
-    Manager mode;
+    Category mode;
 
     public void Change()
     {

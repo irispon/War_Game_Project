@@ -135,4 +135,9 @@ public class ItemInfo:IObjectInfo
     {
         return sprite;
     }
+
+    public Category GetCategory()
+    {
+        return Category.Item;
+    }
 }
