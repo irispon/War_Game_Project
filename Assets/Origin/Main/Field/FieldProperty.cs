@@ -47,5 +47,11 @@ public class FieldProperty:IObjectInfo
     {
         return Category.Tile;
     }
+
+    public IManager GetParent()
+    {
+
+        return TileManager.instance;
+    }
 }
 

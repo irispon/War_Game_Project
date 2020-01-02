@@ -14,7 +14,7 @@ public class MetaData :MonoBehaviour ,IDrag,IDrop
     private Image image;
     private TextMeshProUGUI text;
 
-    private ObjectAdapter adapter;
+  
     public IObjectInfo info;
     private GameObject content;
 
@@ -29,7 +29,6 @@ public class MetaData :MonoBehaviour ,IDrag,IDrop
             text = Text.GetComponent<TextMeshProUGUI>();
         }
 
-         adapter = new ObjectAdapter();
          info = null;
         content = Container.instance.content;
     }
@@ -49,7 +48,7 @@ public class MetaData :MonoBehaviour ,IDrag,IDrop
     public void SetObjectInfo(IObjectInfo info)
     {
         this.info = info;
-        adapter.SetObject(info);
+       
         SetImage(info.GetSprite());
         SetText(info.GetName());
     }
@@ -59,6 +58,7 @@ public class MetaData :MonoBehaviour ,IDrag,IDrop
         content = new GameObject();
         content.AddComponent<SpriteRenderer>();
         content.GetComponent<SpriteRenderer>().sprite = info.GetSprite();
+        content.GetComponent<SpriteRenderer>().sortingLayerName = Layer.UI.ToString();
         content.transform.position = Mouse.GetMousePosition();
         Debug.Log("draging 됨");
     }
@@ -66,7 +66,7 @@ public class MetaData :MonoBehaviour ,IDrag,IDrop
     public void OnDrag(PointerEventData eventData)
     {
        content.transform.position = Mouse.GetMousePosition(); 
-        Debug.Log("draging 되는중+" + Mouse.GetMousePosition());
+   
     }
 
     public void OnDrop(PointerEventData eventData)
@@ -79,16 +79,15 @@ public class MetaData :MonoBehaviour ,IDrag,IDrop
     {
         Destroy(content);
         content = null;
-        GameObject gameObject = adapter.Creat();
-        
-       
+        GameObject gameObject = info.GetParent().MakeObject(info);
         gameObject.transform.position = Mouse.GetMousePosition();
+        FieldManager.GetFieldManager().SetBoard(gameObject);
+
         Debug.Log("draging 끝남");
     }
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        Debug.Log("포인터 입장");
         image.color = new Color32(255, 255, 255, 100);
         
      
@@ -96,7 +95,6 @@ public class MetaData :MonoBehaviour ,IDrag,IDrop
 
     public void OnPointerExit(PointerEventData eventData)
     {
-        Debug.Log("포인터 퇴장");
         image.color = new Color32(255, 255, 255, 255);
     }
 

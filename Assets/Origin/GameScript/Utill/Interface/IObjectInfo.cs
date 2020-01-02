@@ -8,4 +8,5 @@ public interface IObjectInfo
     string GetUqName();
     Sprite GetSprite();
     Category GetCategory();
+    IManager GetParent();
 }

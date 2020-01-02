@@ -3,15 +3,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ItemDcitionary : SingletonObjectSlave<ItemDcitionary>
+public class ItemDcitionary : SingletonObjectSlave<ItemDcitionary>, IManager
 {
     public Dictionary<string, ItemInfo> iteminfos { get; private set; }
-
+    public Category category;
     protected override void Awake()
     {
 
         base.Awake();
         iteminfos = new Dictionary<string, ItemInfo>();
+        category = Category.Item;
     }
 
     public void AddItem(ItemInfo info)
@@ -67,5 +68,16 @@ public class ItemDcitionary : SingletonObjectSlave<ItemDcitionary>
         //Instantiate(itemObject);
     }
 
+    public GameObject MakeObject(IObjectInfo info)
+    {
+       if(info.GetCategory() != this.category)
+        {
+           
+         throw new ArgumentException("아이템 생성 오류! 해당 오브젝트는 아이템이 아닙니다");
+        }
+        GameObject gameObject;
+        gameObject = this.Make(info.GetUqName());
 
+        return gameObject;
+    }
 }

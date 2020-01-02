@@ -140,4 +140,9 @@ public class ItemInfo:IObjectInfo
     {
         return Category.Item;
     }
+
+    public IManager GetParent()
+    {
+        return ItemDcitionary.instance;
+    }
 }

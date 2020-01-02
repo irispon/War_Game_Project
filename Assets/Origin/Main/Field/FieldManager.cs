@@ -22,6 +22,7 @@ public class FieldManager : MonoBehaviour
 
     private void Awake()
     {
+       
         if (instance == null)
         {
             instance = this;
@@ -33,6 +34,7 @@ public class FieldManager : MonoBehaviour
 
 
         }
+      
 
        // DontDestroyOnLoad(gameObject);
 
@@ -41,7 +43,7 @@ public class FieldManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        init();
+        Init();
         BoardSetup();
     }
 
@@ -51,9 +53,10 @@ public class FieldManager : MonoBehaviour
         
     }
 
-    private void init()
+    private void Init()
     {
         Debug.Log("초기화");
+        boardHolder = null;
         floorTiles = TileManager.instance;
 
     }
@@ -61,7 +64,11 @@ public class FieldManager : MonoBehaviour
     
     public static FieldManager GetFieldManager()
     {
-
+        if (FieldManager.instance == null)
+        {
+            GameObject gameObject = new GameObject();
+            gameObject.AddComponent<FieldManager>();
+        }
         return instance;
     }
 
@@ -105,7 +112,24 @@ public class FieldManager : MonoBehaviour
 
     public Transform GetBoard()
     {
+        if (boardHolder == null)
+        {
+            boardHolder = new GameObject("Board").transform;
+        }
         return boardHolder;
+    }
+
+    public void SetBoard(GameObject gameObject)
+    {
+        Vector3 positon = gameObject.transform.position;
+
+ 
+        positon.x = (int)positon.x;
+        positon.y = (int)positon.y;
+
+        gameObject.transform.position = positon;
+        gameObject.transform.SetParent(boardHolder);
+
     }
 
 }

@@ -3,9 +3,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TileManager :SingletonObjectSlave<TileManager>
+public class TileManager :SingletonObjectSlave<TileManager>,IManager
 {
     public GameObject tile;
+    private Category category;
     private Dictionary<string,FieldProperty> floorProperties;
     //private Dictionary<string, FieldProperty> WallProperties;
    
@@ -15,6 +16,7 @@ public class TileManager :SingletonObjectSlave<TileManager>
       
         base.Awake();
         floorProperties = new Dictionary<string, FieldProperty>();
+        category = Category.Tile;
             //WallProperties = new Dictionary<string, FieldProperty>();  
 
 
@@ -92,4 +94,21 @@ public class TileManager :SingletonObjectSlave<TileManager>
         return floorProperties;
     }
 
+    public void MakeObject()
+    {
+       
+    }
+
+    public GameObject MakeObject(IObjectInfo info)
+    {
+        if (info.GetCategory() != Category.Tile)
+        {
+            throw new ArgumentException("해당 오브젝트는 타일이 아닙니다. "+ info.GetCategory().ToString());
+        }
+        GameObject gameObject;
+        TileManager tileManager = TileManager.instance;
+        gameObject = tileManager.MakeFloor(info.GetUqName());
+
+        return gameObject;
+    }
 }

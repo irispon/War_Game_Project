@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/*사멸 코드*/
 public class ObjectAdapter
 {
     private IObjectInfo info;
