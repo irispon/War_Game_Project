@@ -45,5 +45,19 @@ public class WDictionary<TKey, TValue> : Dictionary<TKey, TValue>
         return new WDictionary<TKey, TValue>(this);
     }
 
+    /// <summary>
+    /// 중복되는 키는 덮어씁니다.
+    /// </summary>
+    /// <param name="key"></param>
+    /// <param name="value"></param>
+    public new void Add(TKey key,TValue value)
+    {
+        if (ContainsKey(key))
+        {
+            Remove(key);
+        }
+
+        base.Add(key,value);
+    }
 
 }

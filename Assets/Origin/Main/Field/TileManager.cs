@@ -60,6 +60,7 @@ public class TileManager :SingletonObjectSlave<TileManager>,IManager
 
         tile.setProperty(fieldProperty);
         tile.setTransform(vector);
+        
         return floorObj;
     }
 

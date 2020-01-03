@@ -18,6 +18,8 @@ public class MetaData :MonoBehaviour ,IDrag,IDrop
     public IObjectInfo info;
     private GameObject content;
 
+    private Vector2 correctVector;
+
     public void Awake()
     {
         if(Image != null)
@@ -55,17 +57,25 @@ public class MetaData :MonoBehaviour ,IDrag,IDrop
 
     public void OnBeginDrag(PointerEventData eventData)
     {
+        SpriteRenderer renderer;
+
         content = new GameObject();
         content.AddComponent<SpriteRenderer>();
-        content.GetComponent<SpriteRenderer>().sprite = info.GetSprite();
-        content.GetComponent<SpriteRenderer>().sortingLayerName = Layer.UI.ToString();
-        content.transform.position = Mouse.GetMousePosition();
-        Debug.Log("draging 됨");
+
+        renderer = content.GetComponent<SpriteRenderer>();
+        renderer.sprite = info.GetSprite();
+        renderer.sortingLayerName = Layer.UI.ToString();
+
+        correctVector = renderer.size/2;
+        content.transform.position = Mouse.CorrectMousePosition(correctVector);
+
+
+        //Debug.Log("draging 됨"+ content.transform.position);
     }
 
     public void OnDrag(PointerEventData eventData)
     {
-       content.transform.position = Mouse.GetMousePosition(); 
+       content.transform.position = Mouse.CorrectMousePosition(correctVector);
    
     }
 
@@ -80,10 +90,19 @@ public class MetaData :MonoBehaviour ,IDrag,IDrop
         Destroy(content);
         content = null;
         GameObject gameObject = info.GetParent().MakeObject(info);
+        Debug.Log("Mouse.GetMousePosition()" + Mouse.GetMousePosition());
         gameObject.transform.position = Mouse.GetMousePosition();
-        FieldManager.GetFieldManager().SetBoard(gameObject);
+        if (info.GetCategory() == Category.Tile)
+        {
+            FieldManager.GetFieldManager().OverrideSettingBoard(gameObject);
+        }
+        else
+        {
+            FieldManager.GetFieldManager().SetBoard(gameObject);
+        }
 
-        Debug.Log("draging 끝남");
+
+   
     }
 
     public void OnPointerEnter(PointerEventData eventData)

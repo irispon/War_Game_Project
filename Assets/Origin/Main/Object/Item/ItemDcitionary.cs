@@ -77,7 +77,10 @@ public class ItemDcitionary : SingletonObjectSlave<ItemDcitionary>, IManager
         }
         GameObject gameObject;
         gameObject = this.Make(info.GetUqName());
-
+        gameObject.layer = LayerMask.NameToLayer(Layer.Item.ToString());
+        SpriteRenderer sprite = gameObject.GetComponent<SpriteRenderer>();
+        sprite.sortingOrder=(int)Layer.Item;
+        sprite.sortingLayerName=Layer.Item.ToString();
         return gameObject;
     }
 }

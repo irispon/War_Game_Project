@@ -41,14 +41,20 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Floor
+    uniqueID: 3777561583
+    locked: 0
+  - name: Wall
+    uniqueID: 510837623
+    locked: 0
   - name: Outer
     uniqueID: 3308282191
     locked: 0
   - name: Unit
     uniqueID: 3989981233
     locked: 0
-  - name: Floor
-    uniqueID: 3777561583
+  - name: Item
+    uniqueID: 4228753805
     locked: 0
   - name: UI
     uniqueID: 2679379939

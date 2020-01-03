@@ -11,6 +11,7 @@ public class ItemInfo:IObjectInfo
     private string label="";
     private string description="설명 없음";
     private ItemType itemType = ItemType.Item;
+    public Layer layer { get; } = Layer.Item;
     /*그래픽; 관련. 추후 타입을 스프라이트로 변경. 그래픽 타입은 enum으로 만들어서 single double 등등 으로 변경 예정*/
     private string grapicPath="";
     private string grapicType="";

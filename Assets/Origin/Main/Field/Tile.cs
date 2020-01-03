@@ -28,6 +28,7 @@ public class Tile : MonoBehaviour
         // Debug.Log(""+sprite.sprite.rect);
 
        name = this.fieldProperty.uqName;
+       sprite.sortingLayerName=this.fieldProperty.type.ToString();
        gameObject.layer = LayerMask.NameToLayer(this.fieldProperty.type.ToString());
         //this.fieldProperty.type.ToString() -> Layer이름
 

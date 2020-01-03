@@ -32,6 +32,31 @@ public class SpriteLoader
         return NewSprite;
     }
 
+    //public static Sprite Load32x32Sprite(string FilePath, float PixelsPerUnit = defalutPixels)
+    //{
+
+    //    // Load a PNG or JPG image from disk to a Texture2D, assign this texture to a new sprite and return its reference
+    //    Sprite NewSprite;
+    //    Texture2D SpriteTexture = LoadTexture(FilePath);
+
+
+    //    try
+    //    {
+
+    //        NewSprite = Sprite.Create(SpriteTexture, new Rect(0, 0, SpriteTexture.width, SpriteTexture.height), new Vector2(0, 0), PixelsPerUnit);
+        
+          
+    //    }
+    //    catch (Exception e)
+    //    {
+    //        Debug.Log("텍스쳐 로딩 오류" + FilePath + e);
+    //        return null;
+    //    }
+
+
+    //    return NewSprite;
+    //}
+
     public static Texture2D LoadTexture(string FilePath)
     {
         Debug.Log("텍스쳐 경로: "+FilePath);
