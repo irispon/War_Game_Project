@@ -2,8 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class UnitProperty
+public class UnitProperty:IObjectInfo
 {
+    public string unitName="NoName";
+    public string unitUqName= "NoName";
     public int speed { get; set; }
     private Race race;
 
@@ -59,44 +61,73 @@ public class UnitProperty
 
     }
 
-
-
-    public void TakeDamage(int damage)
-    {
-        Parts part = DictionaryAccessUtill.RandomKey(race.parts);
-        TakeDamage(part, damage);
-
-    }
-
-    public void TakeHeal(int heal)
-    {
-        Parts part = DictionaryAccessUtill.RandomKey(race.parts);
-        TakeHeal(part, heal);
-    }
-
-    public void TakeDamage(Parts part, int damage)
-    {
-        string randomkey = DictionaryAccessUtill.RandomKey(race.parts[part]);
-        TakeDamage(part, randomkey, damage);
-    }
-    public void TakeHeal(Parts part, int heal)
-    {
-        string randomkey = DictionaryAccessUtill.RandomKey(race.parts[part]);
-        TakeHeal(part, randomkey, heal);
-
-    }
-    public void TakeDamage(Parts part, string organ,int damage)
-    {
-        race.parts[part][organ].TkaeDamage(damage);
-    }
-    public void TakeHeal(Parts part, string organ, int heal)
-    {
-        race.parts[part][organ].TakeHeal(heal);
-
-    }
-
     public UnitProperty clone()
     {
         return (UnitProperty)this.MemberwiseClone();
     }
+
+
+    public string GetName()
+    {
+        return unitName;
+    }
+
+    public string GetUqName()
+    {
+        return unitUqName;
+    }
+
+    public Sprite GetSprite()
+    {
+        return sprite;
+    }
+
+    public Category GetCategory()
+    {
+        return Category.Unit;
+    }
+
+    public IManager GetParent()
+    {
+        throw new NotImplementedException();
+    }
+
+
+    /*
+        public void TakeDamage(int damage)
+        {
+            Parts part = DictionaryAccessUtill.RandomKey(race.parts);
+            TakeDamage(part, damage);
+
+        }
+
+        public void TakeHeal(int heal)
+        {
+            Parts part = DictionaryAccessUtill.RandomKey(race.parts);
+            TakeHeal(part, heal);
+        }
+
+        public void TakeDamage(Parts part, int damage)
+        {
+            string randomkey = DictionaryAccessUtill.RandomKey(race.parts[part]);
+            TakeDamage(part, randomkey, damage);
+        }
+        public void TakeHeal(Parts part, int heal)
+        {
+            string randomkey = DictionaryAccessUtill.RandomKey(race.parts[part]);
+            TakeHeal(part, randomkey, heal);
+
+        }
+        public void TakeDamage(Parts part, string organ,int damage)
+        {
+            race.parts[part][organ].TkaeDamage(damage);
+        }
+        public void TakeHeal(Parts part, string organ, int heal)
+        {
+            race.parts[part][organ].TakeHeal(heal);
+
+        }
+        */
+
+
 }

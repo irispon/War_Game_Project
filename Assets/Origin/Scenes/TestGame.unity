@@ -205,9 +205,9 @@ SortingGroup:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 162922226}
-  m_Enabled: 0
-  m_SortingLayerID: -517405713
-  m_SortingLayer: 3
+  m_Enabled: 1
+  m_SortingLayerID: -1615587357
+  m_SortingLayer: 6
   m_SortingOrder: 0
 --- !u!114 &162922231
 MonoBehaviour:
@@ -456,7 +456,7 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 25
-  m_SortingLayerID: -517405713
+  m_SortingLayerID: -1615587357
   m_SortingOrder: 3
   m_TargetDisplay: 0
 --- !u!224 &793877520

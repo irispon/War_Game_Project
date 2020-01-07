@@ -20,7 +20,6 @@ public class Unit : MonoBehaviour, ISelectable, IMoveable
     public void Deselect()
     {
         unitMnager.Detach(this);
-        throw new System.NotImplementedException();
         /*select 되었을 때 초록색 원 해제*/
     }
 
@@ -28,7 +27,6 @@ public class Unit : MonoBehaviour, ISelectable, IMoveable
     {
         
         unitMnager.Join(this);
-        throw new System.NotImplementedException();
         /*select 되었을 때 초록색 원 추가*/
     }
 
