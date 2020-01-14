@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Race 
+public class Race
 {
     public const string THINGDEF = "ThingDef";
     public const string DEFNAME = "defName";
@@ -35,4 +35,6 @@ public class Race
         parts = parts.Clone();
         return (Race)this.MemberwiseClone();
     }
+
+
 }

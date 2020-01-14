@@ -5,6 +5,7 @@ using UnityEngine;
 public class UnitProperty:IObjectInfo
 {
     public string unitName="NoName";
+    public string midleName = "NoName";
     public string unitUqName= "NoName";
     public int speed { get; set; }
     private Race race;
@@ -13,6 +14,11 @@ public class UnitProperty:IObjectInfo
 
     public Sprite sprite { get; set; }
     public Animation animation { get; set; }
+
+    public UnitProperty():this(Races.GetInstance().getRace())
+    {
+
+    }
 
     public UnitProperty(string raceUqName): this(Races.GetInstance().getRace(raceUqName))
     {
@@ -50,7 +56,7 @@ public class UnitProperty:IObjectInfo
     {
 
 
-        this.race = race;
+        this.race = race.Clone();
 
     }
 
@@ -69,7 +75,7 @@ public class UnitProperty:IObjectInfo
 
     public string GetName()
     {
-        return unitName;
+        return unitName +" "+midleName;
     }
 
     public string GetUqName()
@@ -92,6 +98,11 @@ public class UnitProperty:IObjectInfo
         throw new NotImplementedException();
     }
 
+    public DoubleKeyDictionary<Parts, string, Organ> GetOrgans()
+    {
+
+        return race.parts;
+    }
 
     /*
         public void TakeDamage(int damage)
