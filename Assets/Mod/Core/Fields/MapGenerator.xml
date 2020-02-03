@@ -1,0 +1,5 @@
+<MapGenerator ModName ="Core" >
+    <catagory>MapGenerator</catagory>
+		<!--필요한 것. 맵 종류 이름,사용하는 타일, 규칙성?(만들어지는 공동, 입구 수 출구 수, 비밀 공간, 아이템 드랍, 몬스터 젠(레벨, 나오는 범위, 지목 )), 범위, 층 당 증가율 등등, 고정 여부 -->
+
+  </MapGenerator>

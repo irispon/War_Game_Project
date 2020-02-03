@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Organ
+public class Organ :IListObjectInfo
 {
     /*XMLTAGS*/
     public const string THINGDEF = "ThingDef";
@@ -93,5 +93,23 @@ public class Organ
         return name;
     }
 
+    public string GetTitle()
+    {
+        return name;
+    }
 
+    public string GetSubTitle()
+    {
+        return uqName;
+    }
+
+    public Sprite GetSprite()
+    {
+        return null;
+    }
+
+    public Option GetOption()
+    {
+        return new Option(true,true,false);
+    }
 }

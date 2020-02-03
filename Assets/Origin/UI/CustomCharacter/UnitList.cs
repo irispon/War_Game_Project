@@ -17,7 +17,7 @@ public class UnitList : SingletonObject<UnitList>
     {
         charData.transform.SetParent(transform);
         infos.Add(charData);
-        SizeFitter.Fitting(charData);
+        SizeFitter.FittingSize(charData);
     }
     void Start()
     {

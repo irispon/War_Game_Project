@@ -11,6 +11,8 @@ public class Organs:SingletonSlave<Organs>
     /// <summary>
     /// getInstance()를 이용하여 생성하세요
     /// </summary>
+    /// 
+    
    public Organs()
     {
 
@@ -18,7 +20,7 @@ public class Organs:SingletonSlave<Organs>
 
     }
 
-
+    
     public void addOrgan(Organ organ)
     {
         organs.Add(organ.uqName, organ);
@@ -29,6 +31,11 @@ public class Organs:SingletonSlave<Organs>
         return getOrgan(DictionaryAccessUtill.RandomKey(organs));
 
        
+    }
+    public List<IListObjectInfo> GetOrgans()
+    {
+        
+        return new List<IListObjectInfo>(organs.Values);
     }
 
     public Organ getOrgan(string uqName)

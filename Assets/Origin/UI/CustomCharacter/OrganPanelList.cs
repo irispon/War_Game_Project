@@ -30,7 +30,7 @@ public class OrganPanelList : MonoBehaviour, IList<UnitProperty>
         volatilityContent.transform.localPosition = new Vector3(0, volatilityContent.transform.localPosition.y);
 
         this.GetComponent<ScrollRect>().content = volatilityContent.GetComponent<RectTransform>();
-        SizeFitter.Fitting(volatilityContent);
+        SizeFitter.FittingSize(volatilityContent);
         volatilityContent.GetComponent<RectTransform>().sizeDelta = new Vector2(parent.GetComponent<RectTransform>().sizeDelta.x, 0);
         // PartControler pContoler = this.part.GetComponent<PartControler>();
         // OrganControler organControler = this.part.GetComponent<OrganControler>();
@@ -42,9 +42,9 @@ public class OrganPanelList : MonoBehaviour, IList<UnitProperty>
             pContoler.part.text = part.ToString();
     
             partPanel.transform.SetParent(volatilityContent.transform);
-            SizeFitter.Fitting(partPanel);
+            SizeFitter.FittingSize(partPanel);
            
-            
+         
 
             //Debug.Log("장기 파츠: "+part);
             foreach (Organ name in organs[part].Values)
@@ -56,9 +56,9 @@ public class OrganPanelList : MonoBehaviour, IList<UnitProperty>
                 oContoler.efficiency.text = name.efficiency.ToString();
                 
                 organPanel.transform.SetParent(volatilityContent.transform);
-                SizeFitter.Fitting(organPanel);
+                SizeFitter.FittingSize(organPanel);
                 // Debug.Log("장기 명: " + name.name);
-                //    Debug.Log("내구도: " + name.durable);
+                // Debug.Log("내구도: " + name.durable);
                 // Debug.Log("효율: " + name.efficiency);
             }
 
