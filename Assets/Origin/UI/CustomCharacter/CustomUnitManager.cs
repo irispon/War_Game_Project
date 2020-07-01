@@ -25,7 +25,7 @@ public class CustomUnitManager : SingletonObject<CustomUnitManager>
         {
             Debug.Log("생성");
             listManager.Make();
-
+               
         }
     }
 

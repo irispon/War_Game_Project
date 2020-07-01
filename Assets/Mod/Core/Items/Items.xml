@@ -4,6 +4,8 @@
             <defName>기본 셔츠</defName>
             <label>unfinished play</label>
             <description>기본 옷입니다.</description>
+			<rare>-1</rare>
+			<amount>-1</amount>
             <graphicData>
               <texPath>Texture/Shirts/Shirts.b.png</texPath>
               <graphicClass>Graphic_Double</graphicClass>
@@ -15,6 +17,8 @@
             <defName>양본 셔츠</defName>
             <label>unfinished play</label>
             <description>양본 옷입니다.</description>
+			<rare>-1</rare>
+			<amount>-1</amount>
             <graphicData>
               <texPath>Texture/Shirts/Shirts.b.png</texPath>
               <graphicClass>Graphic_Double</graphicClass>

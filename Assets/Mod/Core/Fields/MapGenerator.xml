@@ -1,5 +1,69 @@
 <MapGenerator ModName ="Core" >
     <catagory>MapGenerator</catagory>
+
+  <Map>
+    <name>Normal</name>
+    <theme>Core_Theme</theme>
+    <tiles>Core_Dirt,Core_Wall</tiles>
+    <columns>8</columns>
+    <row>8</row>
+    <random>true</random><!-- 무작위 생성 여부를 설정합니다.-->
+    <rare>1</rare>
+
+
+    <rules>
+  
+      
+      <hideRoom>
+      <hide>0-1</hide><!-- 숨겨진 공간을 설정합니다. ex) 1-10(1~10의 비밀 방을 생성) -->
+      <hide_rare>0.5</hide_rare>
+      <hide_rare_rating>0.25</hide_rare_rating>
+      <hide_map>Normal</hide_map>
+      <hide_size>8,8</hide_size>
+      </hideRoom>
+      
+      <dropTable>  <!-- 아이템이 나오는 범위를 설정합니다.-->
+        <range>
+          <type>normal</type><!-- 특정 종류 제외 !(종류), 특정 종류 만 &(종류), 특정 종류 위주 (종류)(가중치) ex) !range, &Melee, wand 100(1~100) 우선도 !>&> 가중치 -->
+          <uniqs>
+            <uqeq>
+              <pool>core_normal</pool>
+              <weight></weight> <!-- 풀 안의 확률에서 가중치-->
+            </uqeq>
+            <uqeq> <!-- 특정 아이템을 설정합니다.-->
+            <name>Arqush</name><!-- 고유 아이템 이름-->
+            <weight>100</weight><!--나올 확률 0.00~100.00 -->
+          </uqeq>
+          
+          <uqeq>
+            <name></name>
+            <weight></weight>
+          </uqeq>
+          </uniqs>
+      
+        </range>
+        
+      </dropTable>
+      <monster>
+        <level>1</level><!-- 레벨은 해당 맵이 얼마나 어려운지를 나타냅니다. -->
+        <range>1-10</range> <!-- 적대 유닛이 얼마나 나올지 설정합니다. ex) 1-10 (1~10마리) ex) 미 기입시 자동 -->
+        <type>!beast</type> <!-- 특정 종류 제외 !(종류), 특정 종류 만 &(종류), 특정 종류 위주 (종류)(가중치) ex) !beast, &orc, hound 100(1~100) 우선도 !>&> 가중치 -->
+        <uniqs>
+          <uqMo>
+            <pool>core_normal</pool> 
+          </uqMo>
+          <uqMo>
+            <name>Hoper</name>
+            <strong>3-6</strong><!-- 강함의 정도  기본 레벨+strong -->
+            <range>1-2</range> <!-- 나오는 정도 -->
+            <weite>20</weite> <!--스폰 확률 --> 
+          </uqMo>
+          
+        </uniqs>
+        <species>Goblin</species>
+      </monster>
+    </rules>    
+  </Map>
 		<!--필요한 것. 맵 종류 이름,사용하는 타일, 규칙성?(만들어지는 공동, 입구 수 출구 수, 비밀 공간, 아이템 드랍, 몬스터 젠(레벨, 나오는 범위, 지목 )), 범위, 층 당 증가율 등등, 고정 여부 -->
 
   </MapGenerator>

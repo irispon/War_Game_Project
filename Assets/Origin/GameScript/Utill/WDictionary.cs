@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class WDictionary<TKey, TValue> : Dictionary<TKey, TValue>
 {
+
+
     public WDictionary():base()
      {
      }
@@ -52,8 +54,11 @@ public class WDictionary<TKey, TValue> : Dictionary<TKey, TValue>
     /// <param name="value"></param>
     public new void Add(TKey key,TValue value)
     {
+
+
         if (ContainsKey(key))
         {
+            Debug.Log("키 중복! 삭제 되어집니다.");
             Remove(key);
         }
 

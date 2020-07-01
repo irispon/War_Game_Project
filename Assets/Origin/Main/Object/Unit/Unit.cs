@@ -6,9 +6,9 @@ using static Move;
 public class Unit : MonoBehaviour, ISelectable, IMoveable
 {
 
-   private UnitManager unitMnager = UnitManager.getInstance();
-   private SpriteRenderer spriteRenderer;
-   private UnitProperty unitProperty;
+   protected UnitManager unitMnager = UnitManager.getInstance();
+   protected SpriteRenderer spriteRenderer;
+   protected UnitProperty unitProperty;
 
 
     public void Awake()
@@ -38,7 +38,7 @@ public class Unit : MonoBehaviour, ISelectable, IMoveable
        
     }
 
-    private void Render()
+    protected void Render()
     {
         
 
@@ -83,7 +83,7 @@ public class Unit : MonoBehaviour, ISelectable, IMoveable
         Generate(Races.GetInstance().getRace(raceName));
     }
 
-    private void Generate(Race race)
+    protected void Generate(Race race)
     {
         setUnitProperty(race);
        

@@ -16,6 +16,24 @@ public class ItemInfo:IObjectInfo
     private string grapicPath="";
     private string grapicType="";
     private Sprite sprite;
+    public double rare { private set; get; } = -1;
+    public int amount { private set; get; } = -1;
+
+
+    public ItemInfo setRare(double rare)
+    {
+        this.rare = rare;
+
+        return this;
+    }
+
+    public ItemInfo setAmount(int amount)
+    {
+        this.amount = amount;
+
+        return this;
+    }
+
 
     public ItemInfo setUqName(string name)
     {

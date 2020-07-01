@@ -4,5 +4,5 @@ using UnityEngine;
 
 public enum Category
 {
-    Tile,Item,Unit,None
+    Tile,Item,Unit,None,Weapon,Armor
 }

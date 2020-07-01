@@ -66,8 +66,8 @@ public class MetaData :MonoBehaviour ,IDrag,IDrop
         renderer.sprite = info.GetSprite();
         renderer.sortingLayerName = Layer.UI.ToString();
 
-        correctVector = renderer.size/2;
-        content.transform.position = Mouse.CorrectMousePosition(correctVector);
+      //  correctVector = renderer.size/2;
+        content.transform.position = Mouse.GetMousePosition();
 
 
         //Debug.Log("draging 됨"+ content.transform.position);
@@ -75,7 +75,7 @@ public class MetaData :MonoBehaviour ,IDrag,IDrop
 
     public void OnDrag(PointerEventData eventData)
     {
-       content.transform.position = Mouse.CorrectMousePosition(correctVector);
+       content.transform.position = Mouse.GetMousePosition();
    
     }
 
@@ -89,20 +89,27 @@ public class MetaData :MonoBehaviour ,IDrag,IDrop
     {
         Destroy(content);
         content = null;
-        GameObject gameObject = info.GetParent().MakeObject(info);
+
+        //GameObject gameObject = info.GetParent().MakeObject(info);/*이부분 수정. makeObject로만 해결하게 만들어야됨.*/
+
+
         Debug.Log("Mouse.GetMousePosition()" + Mouse.GetMousePosition());
-        gameObject.transform.position = Mouse.GetMousePosition();
-        if (info.GetCategory() == Category.Tile)
-        {
-            FieldManager.GetFieldManager().OverrideSettingBoard(gameObject);
-        }
-        else
-        {
-            FieldManager.GetFieldManager().SetBoard(gameObject);
-        }
+        Vector3 position = Mouse.GetMousePosition();
+        FieldManager fieldManager = FieldManager.GetInstance();
+        info.GetParent().MakeObject(fieldManager.GetBoard(), position, info);
+
+        /*
+                if (info.GetCategory() == Category.Tile)
+                {
+                    FieldManager.GetInstance().OverrideSettingBoard(gameObject);
+                }
+                else
+                {
+                    FieldManager.GetInstance().SetBoard(gameObject);
+                }
+        */
 
 
-   
     }
 
     public void OnPointerEnter(PointerEventData eventData)

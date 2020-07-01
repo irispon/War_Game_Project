@@ -26,4 +26,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Origin/Scenes/CustomUnit.unity
     guid: 34e892460d2324b428591c7de500b477
+  - enabled: 1
+    path: Assets/Origin/Scenes/Game.unity
+    guid: 03791b4ac24fbf74a88b2d1a179cbe94
+  - enabled: 1
+    path: Assets/Origin/Scenes/NewGeneration.unity
+    guid: af3acdb776cd1be49b99d682101c6a8e
   m_configObjects: {}

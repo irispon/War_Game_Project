@@ -4,7 +4,7 @@ using UnityEngine.SceneManagement;
 using System.Collections;
 using System;
 
-public class FieldManager : MonoBehaviour
+public class FieldManager : SingletonObject<FieldManager>
 {
 
 
@@ -16,30 +16,16 @@ public class FieldManager : MonoBehaviour
     public GameObject[] outerWallTiles;                             //외벽
     public GameObject[] Unit;							        	//Unit
 
-
-
-    private static FieldManager instance;
+    public Transform boardHolder;
     private TileManager floorTiles;                                 //바닥
 
-    private WDictionary<Vector2, GameObject> board;//보드의 좌표 + 오브젝트 위치
-    private Transform boardHolder;//보드판
+    private WDictionary<Vector2, GameObject> board;//보드의 좌표 + 오브젝트 위치    private Transform boardHolder;//보드판
 
 
-    private void Awake()
+     protected override void Awake()
     {
-       
-        if (instance == null)
-        {
-            instance = this;
 
-        }
-        else
-        {
-            Destroy(gameObject);
-
-
-        }
-
+        base.Awake();
         board = new WDictionary<Vector2, GameObject>();
        // DontDestroyOnLoad(gameObject);
 
@@ -67,15 +53,7 @@ public class FieldManager : MonoBehaviour
     }
 
     
-    public static FieldManager GetFieldManager()
-    {
-        if (FieldManager.instance == null)
-        {
-            GameObject gameObject = new GameObject();
-            gameObject.AddComponent<FieldManager>();
-        }
-        return instance;
-    }
+
 
     private void FloorCreat(int colums, int rows)
     {
@@ -109,8 +87,8 @@ public class FieldManager : MonoBehaviour
                 }
 
 
-                board.Add(vector, instance);
-                instance.transform.SetParent(boardHolder);
+               board.Add(vector, instance);
+               instance.transform.SetParent(boardHolder);
                
             }
         }
@@ -126,19 +104,27 @@ public class FieldManager : MonoBehaviour
         return boardHolder;
     }
 
-    public void SetBoard(GameObject gameObject)
+    public void PutOn(GameObject gameObject)
     {
+
+     
         Vector3 positon = gameObject.transform.position;
 
+        PutOn(positon, gameObject);
+    }
+    public void PutOn(Vector3 position,GameObject gameObject)
+    {
 
-        positon = Corrector(positon);
 
-        gameObject.transform.position = positon;
+
+
+
+        gameObject.transform.position = Corrector(position);
         gameObject.transform.SetParent(boardHolder);
 
     }
 
-   
+
     public void OverrideSettingBoard(GameObject gameObject)
     {
         Vector2 vector = gameObject.transform.position;
@@ -153,7 +139,7 @@ public class FieldManager : MonoBehaviour
 
         }
         board.Add(vector, gameObject);
-        SetBoard(gameObject);
+        PutOn(gameObject);
     }
 
 

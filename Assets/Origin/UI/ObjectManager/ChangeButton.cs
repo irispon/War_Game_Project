@@ -2,13 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ChangeButton : MonoBehaviour
+public abstract class ChangeButton<T> : MonoBehaviour where T :System.Enum
 {
     [SerializeField]
-    Category mode;
+    protected T mode;
 
-    public void Change()
-    {
-        ObjectListManager.instance.Change(mode);
-    }
+    public abstract void Change();
 }

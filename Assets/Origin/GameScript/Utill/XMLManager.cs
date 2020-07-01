@@ -267,7 +267,7 @@ public class XMLManager
     }
 
 
-    public  delegate void XmlLoad(string path ,XmlNodeList nodes);
+    public delegate void XmlLoad(string path ,XmlNodeList nodes);
 
 
 }

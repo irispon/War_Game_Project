@@ -83,4 +83,44 @@ public class ItemDcitionary : SingletonObjectSlave<ItemDcitionary>, IManager
         sprite.sortingLayerName=Layer.Item.ToString();
         return gameObject;
     }
+
+    public GameObject MakeObject(Transform positon, IObjectInfo info)
+    {
+        throw new NotImplementedException();
+    }
+
+    public GameObject MakeObject(Vector3 positon, IObjectInfo info)
+    {
+        throw new NotImplementedException();
+    }
+
+    public GameObject MakeObject(GameObject borad, Transform positon, IObjectInfo info)
+    {
+        throw new NotImplementedException();
+    }
+
+    public GameObject MakeObject(GameObject borad, Vector3 positon, IObjectInfo info)
+    {
+        throw new NotImplementedException();
+    }
+
+    public GameObject MakeObject(Transform borad, Vector3 positon, IObjectInfo info)
+    {
+        throw new NotImplementedException();
+    }
+
+    public GameObject MakeObject(Transform borad, Transform positon, IObjectInfo info)
+    {
+        throw new NotImplementedException();
+    }
+
+    public WDictionary<IObjectInfo, IWarGameObject> GetDictonary()
+    {
+        throw new NotImplementedException();
+    }
+
+    public List<IObjectInfo> GetDatas()
+    {
+        throw new NotImplementedException();
+    }
 }

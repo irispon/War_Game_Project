@@ -2,6 +2,7 @@
 using System.Collections;
 using System.IO;
 using System;
+using UnityEditor;
 
 public class SpriteLoader
 {
@@ -17,10 +18,17 @@ public class SpriteLoader
       
         try
         {
- 
-            NewSprite = Sprite.Create(SpriteTexture, new Rect(0, 0, SpriteTexture.width, SpriteTexture.height), new Vector2(0, 0), PixelsPerUnit);
-           
-            
+            TextureImporterSettings texSettings = new TextureImporterSettings();
+            int x = SpriteTexture.width / 2;
+            int y = SpriteTexture.height / 2;
+            NewSprite = Sprite.Create(SpriteTexture, new Rect(0, 0, SpriteTexture.width, SpriteTexture.height), new Vector2(0.5f,0.5f), PixelsPerUnit);
+            NewSprite.pivot.Set(SpriteTexture.width, SpriteTexture.height);
+
+            Debug.Log("스프라이트 텍스쳐"+ NewSprite.pivot);
+     
+        
+
+
         }
         catch (Exception e)
         {
@@ -31,6 +39,32 @@ public class SpriteLoader
 
         return NewSprite;
     }
+
+    public static Sprite LoadNewSprite(string FilePath, float width, float height, float PixelsPerUnit = defalutPixels)
+    {
+
+        // Load a PNG or JPG image from disk to a Texture2D, assign this texture to a new sprite and return its reference
+        Sprite NewSprite;
+        Texture2D SpriteTexture = LoadTexture(FilePath);
+
+
+        try
+        {
+
+            NewSprite = Sprite.Create(SpriteTexture, new Rect(0, 0, width, height), new Vector2(0, 0), PixelsPerUnit);
+
+
+        }
+        catch (Exception e)
+        {
+            Debug.Log("텍스쳐 로딩 오류" + FilePath + e);
+            return null;
+        }
+
+
+        return NewSprite;
+    }
+
 
     //public static Sprite Load32x32Sprite(string FilePath, float PixelsPerUnit = defalutPixels)
     //{
@@ -44,8 +78,8 @@ public class SpriteLoader
     //    {
 
     //        NewSprite = Sprite.Create(SpriteTexture, new Rect(0, 0, SpriteTexture.width, SpriteTexture.height), new Vector2(0, 0), PixelsPerUnit);
-        
-          
+
+
     //    }
     //    catch (Exception e)
     //    {
