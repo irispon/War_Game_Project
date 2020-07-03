@@ -97,7 +97,7 @@ public class UnitMaster : SingletonObject<UnitMaster>,IManager
     {
         if (info.GetCategory() != Category.Unit)
         {
-            throw new ArgumentException("해당 오브젝트는 타일이 아닙니다. " + info.GetCategory().ToString());
+            throw new ArgumentException("해당 오브젝트는 유닛이 아닙니다. " + info.GetCategory().ToString());
         }
         GameObject gameObject;
         TileManager tileManager = TileManager.instance;

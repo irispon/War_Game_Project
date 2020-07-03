@@ -39,6 +39,8 @@ public class ContainerBox : Content
             containerContent.transform.SetParent(contentField.transform);
         }
         container.content = null;
+
+        
     }
 
     public override void OnEndDrag(PointerEventData eventData)

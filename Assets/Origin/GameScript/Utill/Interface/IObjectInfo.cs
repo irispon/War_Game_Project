@@ -9,4 +9,5 @@ public interface IObjectInfo
     Sprite GetSprite();
     Category GetCategory();
     IManager GetParent();
+
 }

@@ -7,6 +7,7 @@ public class Init : MonoBehaviour
    public void init()
 
    {
+
         ObjectManager.GetInstance().DestoryAll();
        
         

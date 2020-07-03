@@ -104,6 +104,7 @@ public class UnitProperty:IObjectInfo
         return race.parts;
     }
 
+
     /*
         public void TakeDamage(int damage)
         {

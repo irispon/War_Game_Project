@@ -1,0 +1,6 @@
+     <ModList>
+        <ModInfo>
+            <ModName>Core</ModName>
+            <MoDir>./Assets/Mod/Core</MoDir>
+        </ModInfo>
+     </ModList>

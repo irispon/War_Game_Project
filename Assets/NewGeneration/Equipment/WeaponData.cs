@@ -34,6 +34,7 @@ public struct WeaponData:IObjectInfo
         return uniqName;
     }
 
+
 }
 
 

@@ -1,10 +1,12 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
+[System.Serializable]
 public struct WarGameUnitData:IObjectInfo
 {
-   
 
+
+    
     public string unitName;
     public string uniqName;
 
@@ -44,8 +46,9 @@ public struct WarGameUnitData:IObjectInfo
         return uniqName;
     }
 
-}
 
+}
+[System.Serializable]
 public struct WarGameUnitGhraphic
 {
     //애니메이션 전용 클래스 만들어야할 듯
@@ -56,7 +59,7 @@ public struct WarGameUnitGhraphic
     public GameSprite Right;
 
 }
-
+[System.Serializable]
 public struct GameSprite
 {
     public Sprite sprite;

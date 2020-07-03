@@ -167,33 +167,46 @@ public class XMLManager
 
 
 
-    XmlDocument CreateXml()
+    XmlDocument CreateXml(string path,string fileName)
     {
-        XmlDocument xmlDoc = new XmlDocument();
+        XmlDocument doc = new XmlDocument();
+        /*
+        //DOM 문서 생성
 
-        // Xml을 선언한다(xml의 버전과 인코딩 방식을 정해준다.)
-        xmlDoc.AppendChild(xmlDoc.CreateXmlDeclaration("1.0", "utf-8", "yes"));
-
-        // 루트 노드 생성
-        XmlNode root = xmlDoc.CreateNode(XmlNodeType.Element, "CharacterInfo", string.Empty);
-        XmlNode child = xmlDoc.CreateNode(XmlNodeType.Element, "Character", string.Empty);
-        XmlElement name = xmlDoc.CreateElement("Name");
-        XmlElement lv = xmlDoc.CreateElement("Level");
-        XmlElement exp = xmlDoc.CreateElement("Experience");
-        exp.InnerText = "45";
-        lv.InnerText = "1";
-        name.InnerText = "wergia";
+        //선언문
+        XmlDeclaration dec = doc.CreateXmlDeclaration("1.0", "utf-8", "no");
+        //주석
+        XmlComment comment = doc.CreateComment("xml 문서 생성");
 
 
-        xmlDoc.AppendChild(root).AppendChild(child);
-        child.AppendChild(name);
-        child.AppendChild(lv);
-        child.AppendChild(exp);
+        XmlElement ele = doc.CreateElement("새노드");
+        //ele.InnerText = "생성된 노드값";
+
+        XmlElement child = doc.CreateElement("자식노드");
+        child.InnerText = "자식노드값";
 
 
-        xmlDoc.Save("./Assets/XML/Character2.xml");
+        //결합
+        doc.AppendChild(dec);
+        doc.AppendChild(comment);
+        doc.AppendChild(ele);
+        ele.AppendChild(child);
 
-        return xmlDoc;
+
+
+        //속성
+        child.SetAttribute("번호", "1");
+        XmlAttribute atr = doc.CreateAttribute("성별");
+        atr.Value = "남자";
+        child.SetAttributeNode(atr);
+
+
+
+        //출력
+        doc.Save("test.xml");
+        Console.WriteLine(doc.OuterXml);
+        */
+        return doc;
     }
 
     public static XmlNodeList Load(string path)

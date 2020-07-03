@@ -21,7 +21,7 @@ public class ModListLoader:Loader
             foreach (XmlNode node in nodeList)
             {
                 MODLIST.Add(node.SelectSingleNode("ModName").InnerText);
-         //       Debug.Log(node.SelectSingleNode("ModName").InnerText);
+                Debug.Log("모드 리스트 테스트"+node.SelectSingleNode("ModName").InnerText);
                 modPaths.Add(node.LastChild.InnerText);
             }
 
@@ -39,6 +39,7 @@ public class ModListLoader:Loader
             {
                 foreach (string modpath in modPaths)
                 {
+                    Debug.Log("코어는?" + modpath);
                    XMLManager.Load(modpath + MODINFOPATH, new XMLManager.XmlLoad(new ModInfoLoader().Load));
 
                 }

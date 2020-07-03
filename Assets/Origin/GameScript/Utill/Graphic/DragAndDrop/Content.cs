@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -34,14 +35,22 @@ public class Content : MonoBehaviour,IDrop,IDrag
 
     public virtual void OnDrop(PointerEventData eventData)
     {
-        Transform containerContent = container.content.transform;
-        Debug.Log("변경"+ container.content.name);
-        if (!containerContent.transform.parent.Equals(transform.parent))
+        try
         {
-            containerContent.transform.SetParent(transform.parent);
+            Transform containerContent = container.content.transform;
+            Debug.Log("변경" + container.content.name);
+            if (!containerContent.transform.parent.Equals(transform.parent))
+            {
+                containerContent.transform.SetParent(transform.parent);
+            }
+            container.content.transform.SetSiblingIndex(transform.GetSiblingIndex());
+            container.content = null;
         }
-        container.content.transform.SetSiblingIndex(transform.GetSiblingIndex());
-        container.content = null;
+        catch (Exception e)
+        {
+            Debug.Log(e);
+        }
+
     }
 
     public virtual void OnEndDrag(PointerEventData eventData)
@@ -51,13 +60,21 @@ public class Content : MonoBehaviour,IDrop,IDrag
 
     public virtual void OnPointerEnter(PointerEventData eventData)
     {
-        GameObject content = container.content;
-      
-        if (content !=null && content != this.gameObject)
+        try
         {
-            Debug.Log(content.name+"=>"+ this.name);
-           
+            GameObject content = container.content;
+
+            if (content != null && content != this.gameObject)
+            {
+                Debug.Log(content.name + "=>" + this.name);
+
+            }
         }
+        catch (Exception e)
+        {
+            Debug.Log(e);
+        }
+
         //포인터가 들어가면 색 바뀜
     }
 

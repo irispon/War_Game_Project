@@ -70,7 +70,7 @@ public class ModCrwaler : SingletonObjectSlave<ModCrwaler>
  
             info.name = node.SelectSingleNode(ModInfo.NAME).InnerText;
             Debug.Log(info.name);
-            info.directory = path;
+            info.directory = path.Replace("\\Introduction.xml","");
             try
             {
                 if (BoolParser.isBool(node.SelectSingleNode(ModInfo.NECESSARYMODE).InnerText) == false)

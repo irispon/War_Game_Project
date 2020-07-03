@@ -6,8 +6,7 @@ using UnityEngine.EventSystems;
 
 public class WarGameUnit : MonoBehaviour, IWarGameUnit
 {
-
-
+    [SerializeField]
     private WarGameUnitData unitData;
     private SpriteRenderer charChip;
     private WonBasicAI ai;
@@ -130,6 +129,11 @@ public class WarGameUnit : MonoBehaviour, IWarGameUnit
         if (aiUnitAdater.wonBasicAI != null)
         {
             aiUnitAdater.wonBasicAI.Search();
+           string json= WJsonUtill.ObjectToJson(unitData);
+            WJsonUtill.SaveJsonFile("테스트", json);
+          WarGameUnitData info = WJsonUtill.JsonToOject<WarGameUnitData>(json);
+           Debug.Log(info.uniqName);
+           
         }
     }
 
