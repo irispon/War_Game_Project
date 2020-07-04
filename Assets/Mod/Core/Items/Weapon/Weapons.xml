@@ -1,11 +1,13 @@
 <items ModName ="Core">
 
 		<ThingDef ParentName="BWeapon">
-            <defName>기본 셔츠</defName>
+            <defName>테스트 무기</defName>
             <label>unfinished play</label>
-            <description>기본 옷입니다.</description>
+            <description>테스트 무기입니다.</description>
+			<rare>-1</rare>
+			<amount>-1</amount>
             <graphicData>
-              <texPath>Texture/Shirts/Shirts.b.png</texPath>
+              <texPath>Texture/Shirts/f026.png</texPath>
               <graphicClass>Graphic_Double</graphicClass>
             </graphicData>
             <stuffCategories Inherit="false" />

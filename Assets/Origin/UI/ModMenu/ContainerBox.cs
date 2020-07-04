@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -33,14 +34,22 @@ public class ContainerBox : Content
     public override void OnDrop(PointerEventData eventData)
     {
         GameObject containerContent = container.content;
-        if (!containerContent.transform.parent.Equals(contentField.transform))
+        try
         {
-            Debug.Log(" Parent 변경");
-            containerContent.transform.SetParent(contentField.transform);
+
+            if (!containerContent.transform.parent.Equals(contentField.transform))
+            {
+                Debug.Log(" Parent 변경");
+                containerContent.transform.SetParent(contentField.transform);
+            }
         }
+        catch (Exception e)
+        {
+
+        }
+
         container.content = null;
 
-        
     }
 
     public override void OnEndDrag(PointerEventData eventData)

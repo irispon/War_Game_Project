@@ -29,7 +29,7 @@ public class ModInfoLoader : Loader
             {
 
 
-                if (!node.SelectSingleNode(ITEMS).InnerText.Equals("False"))
+                if (node.SelectSingleNode(ITEMS) != null && !node.SelectSingleNode(ITEMS).InnerText.Equals("False"))
                 {
                     XmlNodeList itemDir = node.SelectNodes(ITEMS);
                     foreach (XmlNode itemNode in itemDir)
@@ -41,7 +41,7 @@ public class ModInfoLoader : Loader
 
                 }
 
-                if (!node.SelectSingleNode(FIELDS).InnerText.Equals("False"))
+                if (node.SelectSingleNode(FIELDS)!=null&& !node.SelectSingleNode(FIELDS).InnerText.Equals("False"))
                 {
                     XmlNodeList fieldDir = node.SelectNodes(FIELDS);
                     foreach (XmlNode fieldNode in fieldDir)
@@ -54,7 +54,7 @@ public class ModInfoLoader : Loader
                 }
 
 
-                if (node.SelectSingleNode(SCRIPTS).InnerText.Equals("True"))
+                if (node.SelectSingleNode(SCRIPTS) != null && node.SelectSingleNode(SCRIPTS).InnerText.Equals("True"))
                 {
                     Debug.Log("Scripts true");
 
@@ -64,7 +64,7 @@ public class ModInfoLoader : Loader
                     Debug.Log("Scripts false");
                 }
 
-                if (!node.SelectSingleNode(OTHERTING).InnerText.Equals("False"))
+                if (node.SelectSingleNode(OTHERTING) != null && !node.SelectSingleNode(OTHERTING).InnerText.Equals("False"))
                 {
                     XmlNodeList itemDir = node.SelectNodes(OTHERTING);
                     foreach (XmlNode itemNode in itemDir)

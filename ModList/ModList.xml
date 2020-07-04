@@ -1,5 +1,9 @@
 <ModList>
   <ModInfo>
+    <ModName>테스트1</ModName>
+    <MoDir>D:\UnityProject\War_Game_Project\Assets\Mod\ModFake</MoDir>
+  </ModInfo>
+  <ModInfo>
     <ModName>Core</ModName>
     <MoDir>D:\UnityProject\War_Game_Project\Assets\Mod\Core</MoDir>
   </ModInfo>

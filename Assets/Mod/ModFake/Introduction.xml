@@ -2,7 +2,7 @@
     <Infomation>
       <Name>테스트1</Name>
 	  <SubDescribe>테스트용 모드</SubDescribe>
-	  <Describe>이 모드는 테스트용 모드이;ㅂ니다. </Describe>
+	  <Describe>이 모드는 테스트용 모드입니다. </Describe>
       <NecessaryMode>None</NecessaryMode>
 	 </Infomation>
    </Introduction>

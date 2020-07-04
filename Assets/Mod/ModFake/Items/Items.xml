@@ -1,0 +1,29 @@
+  <items ModName ="ModFake" >
+
+		<ThingDef ParentName="TestShirt1">
+            <defName>테스트용 옷</defName>
+            <label>unfinished play</label>
+            <description>기본 옷입니다.</description>
+			<rare>-1</rare>
+			<amount>-1</amount>
+            <graphicData>
+              <texPath>Texture/f001.png</texPath>
+              <graphicClass>Graphic_Double</graphicClass>
+            </graphicData>
+            <stuffCategories Inherit="false" />
+          </ThingDef>
+		  
+		  <ThingDef ParentName="TestShirt2">
+            <defName>테스트 셔츠</defName>
+            <label>unfinished play</label>
+            <description>테스트 셔츠입니다.</description>
+			<rare>-1</rare>
+			<amount>-1</amount>
+            <graphicData>
+              <texPath>Texture/f002.png</texPath>
+              <graphicClass>Graphic_Double</graphicClass>
+            </graphicData>
+            <stuffCategories Inherit="false" />
+          </ThingDef>
+		  
+    </items>

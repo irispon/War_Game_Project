@@ -1,0 +1,9 @@
+     <ModInfomation >
+		<ModInfo>
+            <Items>/Items/Items.xml</Items>
+			<Fields>False</Fields>
+            <Scripts>False</Scripts>
+      <OtherThing>False</OtherThing>
+      <OtherThing>False</OtherThing>
+        </ModInfo>
+   </ModInfomation>

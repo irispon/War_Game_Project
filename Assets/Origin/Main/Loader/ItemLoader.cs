@@ -35,7 +35,6 @@ public class ItemLoader : Loader
 
 
                 string itemThingDefName = node.Attributes[PARENTNAME].Value;
-
                 string itemDefName = node.SelectSingleNode(DEFNAME).InnerText;
                 string itemDecription = node.SelectSingleNode(LABEL).InnerText;
 
@@ -50,7 +49,6 @@ public class ItemLoader : Loader
                 string stuffCategories = node.SelectSingleNode(STUFFCATEGORIES).InnerText;
                 double rare = double.Parse(node.SelectSingleNode(RARE).InnerText);
                 int amount = int.Parse(node.SelectSingleNode(AMOUNT).InnerText);
-
                 Debug.Log("고유 이름 " + modName);
                 Debug.Log("아이템 이름 " + itemDefName);
                 Debug.Log("아이템 라벨 " + label);
@@ -64,8 +62,8 @@ public class ItemLoader : Loader
                 Debug.Log("아이템 제작 중");
                 ItemInfo item = new ItemInfo();
                 item.setDecription(decripton).setDefName(itemDefName).setUqName(itemThingDefName).setLabel(label).setGrapic(graphicDir, graphicType).setAmount(amount).setRare(rare);
-
-                ItemDcitionary.instance.AddItem(item);
+   
+                ItemDcitionary.GetInstance().AddItem(item);
                 //ItemManager.GetInstatnce().Make(item);
 
 

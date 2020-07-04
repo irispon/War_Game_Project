@@ -53,6 +53,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91cebce6a3ede934f84e56490c0bcb54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  unitData:
+    unitName: 
+    uniqName: 
+    hp: 0
+    sh: 0
+    sp: 0
+    stamina: 0
+    dodge: 0
+    warGameUnitGhraphic:
+      Idle:
+        sprite: {fileID: 0}
+        state: 0
+      Forward:
+        sprite: {fileID: 0}
+        state: 0
+      Back:
+        sprite: {fileID: 0}
+        state: 0
+      Left:
+        sprite: {fileID: 0}
+        state: 0
+      Right:
+        sprite: {fileID: 0}
+        state: 0
 --- !u!61 &-1156597692282089686
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -70,7 +94,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 2.13, y: 2.12}
+    oldSize: {x: 6, y: 8}
     newSize: {x: 2.13, y: 2.12}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -116,7 +140,7 @@ SpriteRenderer:
   m_SortingLayerID: -304986063
   m_SortingLayer: 4
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: ef73db1ff79a6554487363e5257da0ff, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 2f07939d90f8d1049963eb893d946f74, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
